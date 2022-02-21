@@ -1,0 +1,31 @@
+.container {
+  position: fixed;
+  height: 100vh;
+  width: 20rem;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #383f51;
+}
+
+.nav__element {
+  color: #fff;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  transition: all 0.4s ease-in-out;
+}
+
+.container > :nth-child(1) {
+  margin-top: 2rem;
+}
+
+.nav__element:hover {
+  cursor: pointer;
+  background-color: #fff;
+  color: #383f51;
+}
