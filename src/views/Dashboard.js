@@ -2,11 +2,8 @@ import React from "react";
 import ChartistGraph from "react-chartist";
 
 import {
-  Badge,
   Button,
   Card,
-  Navbar,
-  Nav,
   Table,
   Container,
   Row,
