@@ -35,7 +35,7 @@ function Dashboard() {
             title="Mecaniciens"
             infos="2"
             iconName="fa-solid fa-user"
-            bgColor="bg-danger"
+            bgColor="bg-info"
           />
         </Col>
       </Row>

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Container, Row, Col } from "react-bootstrap";
 import InfosCard from "../../components/InfosCard/InfosCard";
+import ViewMoreCars from "../../components/Modals/ViewMoreCars/ViewMoreCars";
+import Table from "../../components/Table/Table";
 
 function Vehicules() {
   return (
@@ -42,6 +44,10 @@ function Vehicules() {
             bgColor="bg-info"
           />
         </Col>
+      </Row>
+
+      <Row>
+        <Table />
       </Row>
     </Container>
   );

@@ -16,6 +16,13 @@ const dashboardRoutes = [
     layout: "/admin",
   },
   {
+    path: "/vehicules",
+    name: "Vehicules",
+    icon: "nc-icon nc-atom",
+    component: Vehicules,
+    layout: "/admin",
+  },
+  {
     path: "/user",
     name: "Chauffeurs",
     icon: "nc-icon nc-circle-09",
@@ -28,14 +35,6 @@ const dashboardRoutes = [
     name: "Mecaniciens",
     icon: "nc-icon nc-notes",
     component: TableList,
-    layout: "/admin",
-  },
-
-  {
-    path: "/vehicules",
-    name: "Vehicules",
-    icon: "nc-icon nc-atom",
-    component: Vehicules,
     layout: "/admin",
   },
 
