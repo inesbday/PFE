@@ -6,17 +6,21 @@ function InfosCard({ title, infos, iconName, bgColor }) {
   return (
     <Card className={`card-stats ${bgColor}`}>
       <Card.Body>
-        <Row className="d-flex align-items-center">
-          <Col xs="5">
+        {/* Ligne Icon */}
+        <Row className="d-flex justify-content-start align-items-center">
+          <Col>
             <i className={`${iconName} fa-2x text-white`}></i>
           </Col>
-          <Col xs="7">
-            <div className="numbers">
-              <h4 className="text-white">{title}</h4>
-              <Card.Title as="h4" className="text-white">
-                {infos}
-              </Card.Title>
-            </div>
+
+          <Col className="d-flex justify-content-center align-items-center">
+            <h4 className="text-white mt-0 mb-0">{infos}</h4>
+          </Col>
+        </Row>
+
+        {/* Ligne Text */}
+        <Row className="d-flex justify-content-start align-items-center">
+          <Col xs="12">
+            <h4 className="text-white">{title}</h4>
           </Col>
         </Row>
       </Card.Body>

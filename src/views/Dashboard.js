@@ -14,27 +14,27 @@ function Dashboard() {
       <Row>
         <Col lg="4" sm="6">
           <InfosCard
-            title="En bonne état"
+            title="Vehicules"
             infos="5"
-            iconName="fa-solid fa-circle-check"
+            iconName="fa-solid fa-car-side"
             bgColor="bg-success"
           />
         </Col>
 
         <Col lg="4" sm="6">
           <InfosCard
-            title="Entretien"
+            title="Chauffeurs"
             infos="10"
-            iconName="fa-solid fa-screwdriver-wrench"
+            iconName="fa-solid fa-user "
             bgColor="bg-warning"
           />
         </Col>
 
         <Col lg="4" sm="6">
           <InfosCard
-            title="En-panne"
+            title="Mecaniciens"
             infos="2"
-            iconName="fa-solid fa-triangle-exclamation"
+            iconName="fa-solid fa-user"
             bgColor="bg-danger"
           />
         </Col>
