@@ -46,8 +46,7 @@ function Notifications() {
       message: (
         <div>
           <div>
-            Welcome to <b>Light Bootstrap Dashboard React</b> - a beautiful
-            freebie for every web developer.
+            le chauffeur X a declaré un accident <b> </b> -
           </div>
         </div>
       ),
@@ -199,8 +198,8 @@ function Notifications() {
                     <i className="nc-icon nc-simple-remove"></i>
                   </button>
                   <span>
-                    <b>Warning -</b>
-                    This is a regular notification made with ".alert-warning"
+                    <b>Warning -</b>4 Assurance(s) seront périmées apres 4
+                    jours"
                   </span>
                 </Alert>
                 <Alert variant="danger">
@@ -214,7 +213,7 @@ function Notifications() {
                   </button>
                   <span>
                     <b>Danger -</b>
-                    This is a regular notification made with ".alert-danger"
+                    Le chauffeur X a declaré un accident"
                   </span>
                 </Alert>
               </Col>

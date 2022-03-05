@@ -19,7 +19,7 @@ function Sidebar({ color, image, routes }) {
       <div className="sidebar-wrapper">
         <div className="logo d-flex align-items-center justify-content-center">
           <div className="logo-img">
-            <h4>Ines Bikeye</h4>
+            <h4>First Parc </h4>
           </div>
         </div>
         <Nav>

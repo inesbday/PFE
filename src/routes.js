@@ -5,6 +5,7 @@ import Typography from "./views/Typography.js";
 import Icons from "./views/Icons.js";
 import Maps from "./views/Maps.js";
 import Notifications from "./views/Notifications.js";
+import Vehicules from "./views/Vehicules/Vehicules.js";
 
 const dashboardRoutes = [
   {
@@ -15,31 +16,31 @@ const dashboardRoutes = [
     layout: "/admin",
   },
   {
+    path: "/vehicules",
+    name: "Vehicules",
+    icon: "nc-icon nc-atom",
+    component: Vehicules,
+    layout: "/admin",
+  },
+  {
     path: "/user",
-    name: "User Profile",
+    name: "Chauffeurs",
     icon: "nc-icon nc-circle-09",
     component: UserProfile,
     layout: "/admin",
   },
+
   {
     path: "/table",
-    name: "Table List",
+    name: "Mecaniciens",
     icon: "nc-icon nc-notes",
     component: TableList,
     layout: "/admin",
   },
 
   {
-    path: "/icons",
-    name: "Icons",
-    icon: "nc-icon nc-atom",
-    component: Icons,
-    layout: "/admin",
-  },
-
-  {
     path: "/notifications",
-    name: "Notifications",
+    name: "Missions",
     icon: "nc-icon nc-bell-55",
     component: Notifications,
     layout: "/admin",
