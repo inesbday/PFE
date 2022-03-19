@@ -9,7 +9,6 @@ function PieChart() {
     <Card>
       <Card.Header>
         <Card.Title as="h4">Email Statistics</Card.Title>
-        <p className="card-category">Last Campaign Performance</p>
       </Card.Header>
       <Card.Body>
         <div className="ct-chart ct-perfect-fourth" id="chartPreferences">
@@ -21,16 +20,11 @@ function PieChart() {
             type="Pie"
           />
         </div>
-        <div className="legend">
-          <i className="fas fa-circle text-info"></i>
-          Open <i className="fas fa-circle text-danger"></i>
-          Bounce <i className="fas fa-circle text-warning"></i>
+        <div className="legend d-flex justify-content-center align-items-center">
+          <i className="fas fa-circle text-info mr-2"></i>
+          Open <i className="fas fa-circle text-danger mr-2"></i>
+          Bounce <i className="fas fa-circle text-warning mr-2"></i>
           Unsubscribe
-        </div>
-        <hr></hr>
-        <div className="stats">
-          <i className="far fa-clock"></i>
-          Campaign sent 2 days ago
         </div>
       </Card.Body>
     </Card>

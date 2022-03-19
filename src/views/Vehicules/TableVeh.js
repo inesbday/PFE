@@ -4,8 +4,7 @@ import { DataGrid } from "@mui/x-data-grid";
 
 import styles from "./table.module.css";
 
-import ViewMoreCars from "../Modals/ViewMoreCars/ViewMoreCars";
-
+import ViewMoreCars from "../../components/Modals/ViewMoreCars/ViewMoreCars";
 const rows = [
   { id: 1, cartegrise: "Snow", matricule: "Jon", date: 35, etat: "mission" },
   {

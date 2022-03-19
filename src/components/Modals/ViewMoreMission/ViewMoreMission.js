@@ -2,18 +2,19 @@ import React from "react";
 
 import { Modal, Button, Row, Container, Col } from "react-bootstrap";
 
-function ViewMoreCars({ show, handleClose }) {
+function ViewMoreMission({ show, handleClose }) {
   return (
     <Modal show={show} onHide={handleClose} size="lg">
       <Modal.Header closeButton>
-        <Modal.Title>Details voiture A</Modal.Title>
+        <Modal.Title>View more mission</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Container>
           <Row className="d-flex align-items-center mb-2">
             <Col>
-              <h5 className="mr-2 mb-0 text-info">Email:</h5>
-              <p className="mb-0">hi</p>
+              <h5 className="mr-2 mb-0 text-info">Creer par:</h5>
+              <h5 className="mr-2 mb-0 text-info">Date depart:</h5>
+              <h5 className="mr-2 mb-0 text-info">Date arrivée:</h5>
             </Col>
 
             <Col>
@@ -67,4 +68,4 @@ function ViewMoreCars({ show, handleClose }) {
   );
 }
 
-export default ViewMoreCars;
+export default ViewMoreMission;

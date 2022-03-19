@@ -1,11 +1,12 @@
 import React from "react";
 
 import { Card, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-function InfosCard({ title, infos, iconName, bgColor }) {
+function InfosCard({ title, infos, iconName, bgColor, linkCard }) {
   return (
-    <Card className={`card-stats ${bgColor}`}>
-      <Card.Body>
+    <Card>
+      <Card.Body className={`card-stats ${bgColor}`}>
         {/* Ligne Icon */}
         <Row className="d-flex justify-content-start align-items-center">
           <Col>
@@ -24,11 +25,15 @@ function InfosCard({ title, infos, iconName, bgColor }) {
           </Col>
         </Row>
       </Card.Body>
-      <Card.Footer>
-        <div className="stats text-white">
-          <i className="fa fa-angle-right text-white"></i>
-          Voir détailes
-        </div>
+      <Card.Footer
+        className={`opacity-75 ${bgColor} d-flex align-items-center`}
+      >
+        <Link to={linkCard}>
+          <div className="stats text-white mt-2">
+            <i className="fa fa-angle-right text-white"></i>
+            Voir détailes
+          </div>
+        </Link>
       </Card.Footer>
     </Card>
   );
