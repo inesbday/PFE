@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import InfosCard from "../../components/InfosCard/InfosCard";
 import ViewMoreCars from "../../components/Modals/ViewMoreCars/ViewMoreCars";
-import Table from "../../components/Table/Table";
+import Table from "./TableVeh";
 
 function Vehicules() {
   return (

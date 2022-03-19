@@ -1,11 +1,10 @@
-import Dashboard from "./views/Dashboard.js";
-import UserProfile from "./views/UserProfile.js";
-import TableList from "./views/TableList.js";
-import Typography from "./views/Typography.js";
-import Icons from "./views/Icons.js";
-import Maps from "./views/Maps.js";
-import Notifications from "./views/Notifications.js";
+import Dashboard from "./views/Dashboard/Dashboard";
 import Vehicules from "./views/Vehicules/Vehicules.js";
+import Chauffeurs from "./views/Chauffeurs/Chauffeurs.js";
+import Mecaniciens from "./views/Mecaniciens/Mecaniciens.js";
+import Missions from "./views/Missions/Missions";
+import Amendes from "./views/Amendes/Amendes";
+import Pannes from "./views/Amendes/Amendes";
 
 const dashboardRoutes = [
   {
@@ -23,28 +22,43 @@ const dashboardRoutes = [
     layout: "/admin",
   },
   {
-    path: "/user",
+    path: "/Chauffeurs",
     name: "Chauffeurs",
     icon: "nc-icon nc-circle-09",
-    component: UserProfile,
+    component: Chauffeurs,
     layout: "/admin",
   },
 
   {
-    path: "/table",
+    path: "/Mecaniciens",
     name: "Mecaniciens",
     icon: "nc-icon nc-notes",
-    component: TableList,
+    component: Mecaniciens,
     layout: "/admin",
   },
 
   {
-    path: "/notifications",
+    path: "/Missions",
     name: "Missions",
     icon: "nc-icon nc-bell-55",
-    component: Notifications,
+    component: Missions,
     layout: "/admin",
   },
+  {
+    path: "/Amendes",
+    name: "Amendes",
+    icon: "nc-icon nc-bell-55",
+    component: Amendes,
+    layout: "/admin",
+  },
+  {
+    path: "/Pannes",
+    name: "Pannes",
+    icon: "nc-icon nc-bell-55",
+    component: Pannes,
+    layout: "/admin",
+  },
+  
 ];
 
 export default dashboardRoutes;

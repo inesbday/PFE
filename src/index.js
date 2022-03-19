@@ -10,12 +10,17 @@ import "./assets/css/animate.min.css";
 import "./assets/css/demo.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
-import AdminLayout from "./layouts/Admin.js";
+import App from "./App";
+import Login from "./views/Auth/Login";
+import ForgotPassword from "./views/Auth/ForgotPassword";
 
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
+      <Route path="/admin" render={(props) => <App {...props} />} />
+      <Route path="/login" render={() => <Login />} />
+      <Route path="/forgotpassword" render={() => <ForgotPassword />} />
+
       <Redirect from="/" to="/admin/dashboard" />
     </Switch>
   </BrowserRouter>,

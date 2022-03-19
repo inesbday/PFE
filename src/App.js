@@ -1,16 +1,14 @@
 import React, { Component, useState, useEffect } from "react";
 import { useLocation, Route, Switch } from "react-router-dom";
 
-import AdminNavbar from "../components/Navbars/AdminNavbar";
-import Footer from "../components/Footer/Footer";
-import Sidebar from "../components/Sidebar/Sidebar";
-import FixedPlugin from "../components/FixedPlugin/FixedPlugin.js";
+import AdminNavbar from "./components/Navbars/AdminNavbar";
+import Footer from "./components/Footer/Footer";
+import Sidebar from "./components/Sidebar/Sidebar";
+import routes from "./routes";
 
-import routes from "../routes";
+import sidebarImage from "./assets/img/sidebar.jpg";
 
-import sidebarImage from "../assets/img/sidebar-3.jpg";
-
-function Admin() {
+function App() {
   const [image, setImage] = useState(sidebarImage);
   const [color, setColor] = useState("black");
   const [hasImage, setHasImage] = useState(true);
@@ -49,27 +47,17 @@ function Admin() {
   }, [location]);
 
   return (
-    <>
-      <div className="wrapper">
-        <Sidebar color={color} image={hasImage ? image : ""} routes={routes} />
-        <div className="main-panel" ref={mainPanel}>
-          <AdminNavbar />
-          <div className="content">
-            <Switch>{getRoutes(routes)}</Switch>
-          </div>
-          <Footer />
+    <div className="wrapper">
+      <Sidebar color={color} image={hasImage ? image : ""} routes={routes} />
+      <div className="main-panel" ref={mainPanel}>
+        <AdminNavbar />
+        <div className="content">
+          <Switch>{getRoutes(routes)}</Switch>
         </div>
+        <Footer />
       </div>
-      <FixedPlugin
-        hasImage={hasImage}
-        setHasImage={() => setHasImage(!hasImage)}
-        color={color}
-        setColor={(color) => setColor(color)}
-        image={image}
-        setImage={(image) => setImage(image)}
-      />
-    </>
+    </div>
   );
 }
 
-export default Admin;
+export default App;
