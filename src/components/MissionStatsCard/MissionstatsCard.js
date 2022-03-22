@@ -9,7 +9,7 @@ function MissionstatsCard() {
       <Container>
         <Row className="d-flex justify-content-between align-items-center border-bottom">
           <Col className="col-8 d-flex justify-content-start my-4">
-            <h4 className="my-0">Mission effectué</h4>
+            <h4 className="my-0">Missions effectués</h4>
           </Col>
           <Col className="d-flex justify-content-end">
             <h4
@@ -22,7 +22,7 @@ function MissionstatsCard() {
 
         <Row className="d-flex justify-content-between align-items-center border-bottom">
           <Col className="col-8 d-flex justify-content-start my-4">
-            <h4 className="my-0">Mission en cours</h4>
+            <h4 className="my-0">Missions en cours</h4>
           </Col>
           <Col className="d-flex justify-content-end">
             <h4
@@ -35,7 +35,7 @@ function MissionstatsCard() {
 
         <Row className="d-flex justify-content-between align-items-center border-bottom">
           <Col className="col-8 d-flex justify-content-start my-4">
-            <h4 className="my-0">Mission en attente</h4>
+            <h4 className="my-0">Missions en attente</h4>
           </Col>
           <Col className="d-flex justify-content-end">
             <h4
@@ -48,7 +48,7 @@ function MissionstatsCard() {
 
         <Row className="d-flex justify-content-between align-items-center border-bottom">
           <Col className="col-8 d-flex justify-content-start my-4">
-            <h4 className="my-0">Mission annulé</h4>
+            <h4 className="my-0">Missions annulées</h4>
           </Col>
           <Col className="d-flex justify-content-end">
             <h4
@@ -64,7 +64,7 @@ function MissionstatsCard() {
         >
           <Col className="col-8 d-flex justify-content-start my-4">
             <h4 className="my-0">
-              <strong>TOTALE mission</strong>
+              <strong>TOTALE missions</strong>
             </h4>
           </Col>
           <Col className="d-flex justify-content-end">

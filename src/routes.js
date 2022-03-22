@@ -4,7 +4,9 @@ import Chauffeurs from "./views/Chauffeurs/Chauffeurs.js";
 import Mecaniciens from "./views/Mecaniciens/Mecaniciens.js";
 import Missions from "./views/Missions/Missions";
 import Amendes from "./views/Amendes/Amendes";
-import Pannes from "./views/Amendes/Amendes";
+import Pannes from "./views/Pannes/Pannes";
+import Meco from "./views/Meco/Meco";
+import users from './views/users/users';
 
 const dashboardRoutes = [
   {
@@ -12,6 +14,13 @@ const dashboardRoutes = [
     name: "Dashboard",
     icon: "nc-icon nc-chart-pie-35",
     component: Dashboard,
+    layout: "/admin",
+  },
+  {
+    path: "/users",
+    name: "users",
+    icon: "nc-icon nc-atom",
+    component: users,
     layout: "/admin",
   },
   {
@@ -44,6 +53,7 @@ const dashboardRoutes = [
     component: Missions,
     layout: "/admin",
   },
+
   {
     path: "/Amendes",
     name: "Amendes",
@@ -58,7 +68,13 @@ const dashboardRoutes = [
     component: Pannes,
     layout: "/admin",
   },
-  
+  {
+    path: "/Meco",
+    name: "Meco",
+    icon: "nc-icon nc-bell-55",
+    component: Meco,
+    layout: "/admin",
+  },
 ];
 
 export default dashboardRoutes;

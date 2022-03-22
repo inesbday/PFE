@@ -15,7 +15,7 @@ import {
   Col,
 } from "reactstrap";
 
-function AjouterMission({ show, handleClose }) {
+function AjouterUser({ show, handleClose }) {
   return (
     <Modal
       isOpen={show}
@@ -24,7 +24,7 @@ function AjouterMission({ show, handleClose }) {
       fullscreen="sm"
       size="lg"
     >
-      <ModalHeader toggle={handleClose}>Ajouter une mission</ModalHeader>
+      <ModalHeader toggle={handleClose}>Modifier offre</ModalHeader>
       <ModalBody>
         <Form>
           <Row>
@@ -75,7 +75,7 @@ function AjouterMission({ show, handleClose }) {
                 <Row>
                   <Col>
                     <Label for="typeFacture">
-                      Type de facturation{" "}
+                      Type de factures{" "}
                       <strong className="text-danger">*</strong>
                     </Label>
                     <Input
@@ -150,7 +150,7 @@ function AjouterMission({ show, handleClose }) {
                 <Row>
                   <Col>
                     <Label for="represntant">
-                      Representant <strong className="text-danger">*</strong>
+                      Representat <strong className="text-danger">*</strong>
                     </Label>
                     <Input
                       id="representant"
@@ -173,13 +173,12 @@ function AjouterMission({ show, handleClose }) {
                     <Label for="nBT">
                       N° BT <strong className="text-danger">*</strong>
                     </Label>
-                    <Input
-                      id="nBT"
-                      name="nBT"
-                      type="text"
-                      placeholder="N° bon de réception"
-                      required
-                    />
+                    <Input id="nBT" name="nBT" type="select" required>
+                      <option>Fait votre choix...</option>
+                      <option>N 1</option>
+                      <option>N 2</option>
+                      <option>N 3</option>
+                    </Input>
                   </Col>
                 </Row>
               </FormGroup>
@@ -190,12 +189,12 @@ function AjouterMission({ show, handleClose }) {
                     <Label for="dateBT">
                       Date BT <strong className="text-danger">*</strong>
                     </Label>
-                    <Input
-                      id="dateBT"
-                      name="dateBT"
-                      type="date"
-                      required
-                    ></Input>
+                    <Input id="dateBT" name="dateBT" type="select" required>
+                      <option>Fait votre choix...</option>
+                      <option>Date 1</option>
+                      <option>Date 2</option>
+                      <option>Date 3</option>
+                    </Input>
                   </Col>
                 </Row>
               </FormGroup>
@@ -273,20 +272,21 @@ function AjouterMission({ show, handleClose }) {
               <FormGroup>
                 <Row>
                   <Col>
-                    <Label for="lieudepart">
-                      Lieu de depart <strong className="text-danger">*</strong>
+                    <Label for="workingDays">
+                      Jours de travail{" "}
+                      <strong className="text-danger">*</strong>
                     </Label>
                     <Input
-                      id="lieudepart"
-                      name="lieudepart"
+                      id="workingDays"
+                      name="workingDays"
                       type="select"
                       required
                     >
                       <option>Fait votre choix...</option>
-                      <option>Tunis</option>
-                      <option>Sousse</option>
-                      <option>Sfax</option>
-                      <option>Monastir</option>
+                      <option>L-V (Bureau)</option>
+                      <option>L-Mer (Bureau)</option>
+                      <option>L-V (A distance)</option>
+                      <option>Weekends (A distance)</option>
                     </Input>
                   </Col>
                 </Row>
@@ -295,72 +295,22 @@ function AjouterMission({ show, handleClose }) {
               <FormGroup>
                 <Row>
                   <Col>
-                    <Label for="lieuarrivée">
-                      Lieu d'arrivé <strong className="text-danger">*</strong>
+                    <Label for="workingDays">
+                      Jours de travail{" "}
+                      <strong className="text-danger">*</strong>
                     </Label>
                     <Input
-                      id="lieuarrivé"
-                      name="lieuarrivé"
+                      id="workingDays"
+                      name="workingDays"
                       type="select"
                       required
                     >
                       <option>Fait votre choix...</option>
-                      <option>Tunis</option>
-                      <option>Sousse</option>
-                      <option>Sfax</option>
-                      <option>Monastir</option>
+                      <option>L-V (Bureau)</option>
+                      <option>L-Mer (Bureau)</option>
+                      <option>L-V (A distance)</option>
+                      <option>Weekends (A distance)</option>
                     </Input>
-                  </Col>
-                </Row>
-              </FormGroup>
-
-              <FormGroup>
-                <Row>
-                  <Col>
-                    <Label for="distance">
-                      Distance <strong className="text-danger">*</strong>
-                    </Label>
-                    <Input
-                      id="distance"
-                      name="distance"
-                      type="text"
-                      placeholder="0"
-                      required
-                    />
-                  </Col>
-                </Row>
-              </FormGroup>
-
-              <FormGroup>
-                <Row>
-                  <Col>
-                    <Label for="Quantité">
-                    Quantité <strong className="text-danger">*</strong>
-                    </Label>
-                    <Input
-                      id="quantité"
-                      name="quantité"
-                      type="text"
-                      placeholder="0.000"
-                      required
-                    />
-                  </Col>
-                </Row>
-              </FormGroup>
-
-              <FormGroup>
-                <Row>
-                  <Col>
-                    <Label for="Ecart Poids">
-                    Ecart Poids <strong className="text-danger">*</strong>
-                    </Label>
-                    <Input
-                      id="ecartPoids"
-                      name="ecartPoids"
-                      type="text"
-                      placeholder="0.000"
-                      required
-                    />
                   </Col>
                 </Row>
               </FormGroup>
@@ -382,4 +332,4 @@ function AjouterMission({ show, handleClose }) {
   );
 }
 
-export default AjouterMission;
+export default AjouterUser;
