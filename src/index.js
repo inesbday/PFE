@@ -13,16 +13,20 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import App from "./App";
 import Login from "./views/Auth/Login";
 import ForgotPassword from "./views/Auth/ForgotPassword";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Switch>
-      <Route path="/admin" render={(props) => <App {...props} />} />
-      <Route path="/login" render={() => <Login />} />
-      <Route path="/forgotpassword" render={() => <ForgotPassword />} />
+  <Provider store={store}>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/admin" render={(props) => <App {...props} />} />
+        <Route path="/login" render={() => <Login />} />
+        <Route path="/forgotpassword" render={() => <ForgotPassword />} />
 
-      <Redirect from="/" to="/admin/dashboard" />
-    </Switch>
-  </BrowserRouter>,
+        <Redirect from="/" to="/admin/dashboard" />
+      </Switch>
+    </BrowserRouter>
+  </Provider>,
   document.getElementById("root")
 );

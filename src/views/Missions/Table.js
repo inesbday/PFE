@@ -150,21 +150,21 @@ function Table() {
       renderCell: () => (
         <div className="d-flex justify-content-between align-items-center w-100">
           <button className="btn btn-secondary" title="Modifier">
-            <i class="fa-solid fa-pen"></i>
+            <i className="fa-solid fa-pen"></i>
           </button>
           <button
             className="btn btn-warning"
             onClick={toggleShow}
             title="Voir plus"
           >
-            <i class="fa-solid fa-eye"></i>
+            <i className="fa-solid fa-eye"></i>
           </button>
 
           <button className="btn btn-primary" title="Télécharger">
-            <i class="fa-solid fa-circle-down"></i>
+            <i className="fa-solid fa-circle-down"></i>
           </button>
           <button className="btn btn-danger" title="Supprimer">
-            <i class="fa-solid fa-trash"></i>
+            <i className="fa-solid fa-trash"></i>
           </button>
         </div>
       ),

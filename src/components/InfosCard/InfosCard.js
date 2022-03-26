@@ -3,7 +3,7 @@ import React from "react";
 import { Card, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-function InfosCard({ title, infos, iconName, bgColor, linkCard }) {
+function InfosCard({ title, infos, iconName, bgColor, linkCard = "" }) {
   return (
     <Card>
       <Card.Body className={`card-stats ${bgColor}`}>

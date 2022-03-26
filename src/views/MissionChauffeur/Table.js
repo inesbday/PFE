@@ -51,23 +51,26 @@ function Table() {
   const toggleShow = () => setShow(!show);
 
   const columns = [
-    { field: "id", headerName: "ID", width: 60 },
-    { field: "client", headerName: "Client", width: 100 },
+    { field: "id", headerName: "ID", width: 60, flex: 1 },
+    { field: "client", headerName: "Client", width: 100, flex: 1 },
     {
       field: "vehicule",
       headerName: "Véhicule",
       width: 100,
+      flex: 1,
     },
 
     {
       field: "lieuDepart",
       headerName: "Lieu départ",
       width: 130,
+      flex: 1,
     },
     {
       field: "lieuArrive",
       headerName: "Lieu arrivé",
       width: 130,
+      flex: 1,
     },
 
     {
@@ -75,6 +78,7 @@ function Table() {
       headerName: "Etat",
       description: "This column has a value getter and is not sortable.",
       sortable: false,
+      flex: 1,
       width: 140,
       renderCell: ({ value }) => {
         let customClassName;
@@ -108,25 +112,26 @@ function Table() {
     {
       field: "Actions",
       headerName: "Actions",
+      flex: 1,
       width: 220,
       renderCell: () => (
         <div className="d-flex justify-content-between align-items-center w-100">
           <button className="btn btn-secondary" title="Modifier">
-            <i class="fa-solid fa-pen"></i>
+            <i className="fa-solid fa-pen"></i>
           </button>
           <button
             className="btn btn-warning"
             onClick={toggleShow}
             title="Voir plus"
           >
-            <i class="fa-solid fa-eye"></i>
+            <i className="fa-solid fa-eye"></i>
           </button>
 
           <button className="btn btn-primary" title="Télécharger">
-            <i class="fa-solid fa-circle-down"></i>
+            <i className="fa-solid fa-circle-down"></i>
           </button>
           {/* <button className="btn btn-danger" title="Supprimer">
-            <i class="fa-solid fa-trash"></i>
+            <i className="fa-solid fa-trash"></i>
           </button> */}
         </div>
       ),

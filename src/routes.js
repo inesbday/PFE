@@ -5,9 +5,8 @@ import Mecaniciens from "./views/Mecaniciens/Mecaniciens.js";
 import Missions from "./views/Missions/Missions";
 import Amendes from "./views/Amendes/Amendes";
 import Pannes from "./views/Pannes/Pannes";
-import Meco from "./views/Meco/Meco";
-import users from './views/users/users';
-
+import MissionChauffeur from "./views/MissionChauffeur/MissionChauffeur";
+import Utilisateurs from "./views/Utilisateurs/Utilisateurs";
 const dashboardRoutes = [
   {
     path: "/dashboard",
@@ -17,10 +16,10 @@ const dashboardRoutes = [
     layout: "/admin",
   },
   {
-    path: "/users",
-    name: "users",
+    path: "/Utilisateurs",
+    name: "Utilisateurs",
     icon: "nc-icon nc-atom",
-    component: users,
+    component: Utilisateurs,
     layout: "/admin",
   },
   {
@@ -69,10 +68,10 @@ const dashboardRoutes = [
     layout: "/admin",
   },
   {
-    path: "/Meco",
-    name: "Meco",
+    path: "/MissionChauffeur",
+    name: "MissionChauffeur",
     icon: "nc-icon nc-bell-55",
-    component: Meco,
+    component: MissionChauffeur,
     layout: "/admin",
   },
 ];

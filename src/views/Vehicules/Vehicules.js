@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-
-import { Container, Row, Col } from "react-bootstrap";
+import React from "react";
+import { Card, Container, Row, Col } from "react-bootstrap";
 import InfosCard from "../../components/InfosCard/InfosCard";
-import ViewMoreCars from "../../components/Modals/ViewMoreCars/ViewMoreCars";
 import Table from "./TableVeh";
 
 function Vehicules() {
@@ -47,7 +45,16 @@ function Vehicules() {
       </Row>
 
       <Row>
-        <Table />
+        <Col md="12">
+          <Card className="strpied-tabled-with-hover">
+            <Card.Header>
+              <Card.Title as="h4">Liste des vehicules </Card.Title>
+            </Card.Header>
+            <Card.Body className="table-full-width table-responsive px-0">
+              <Table />
+            </Card.Body>
+          </Card>
+        </Col>
       </Row>
     </Container>
   );

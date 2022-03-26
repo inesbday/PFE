@@ -1,11 +1,11 @@
 import React from "react";
 import Table from "./Table";
 import { Container, Row, Card, Button, Col } from "react-bootstrap";
-function Meco() {
+function MissionChauffeur() {
   return (
     <Container>
       <Row className="d-flex justify-content-between align-items-center">
-        <h4>Mes missions</h4>
+        <h4>Mes missions ( pour les chauffeurs) </h4>
       </Row>
       <Row className="mt-5">
         <Table />
@@ -14,4 +14,4 @@ function Meco() {
   );
 }
 
-export default Meco;
+export default MissionChauffeur;

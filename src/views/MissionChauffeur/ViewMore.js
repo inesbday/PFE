@@ -77,7 +77,7 @@ function ViewMore({ show, handleClose }) {
                   <option>Option 2</option>
                   <option>Option 3</option>
                 </Input>
-                <Button className="mt-2">Met à jour l'état</Button>
+                <Button className="mt-2">Mettre à jour l'état</Button>
               </FormGroup>
             </Row>
           </Col>

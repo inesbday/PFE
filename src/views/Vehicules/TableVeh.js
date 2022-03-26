@@ -6,58 +6,76 @@ import styles from "./table.module.css";
 
 import ViewMoreCars from "../../components/Modals/ViewMoreCars/ViewMoreCars";
 const rows = [
-  { id: 1, cartegrise: "Snow", matricule: "Jon", date: 35, etat: "mission" },
+  {
+    id: 1,
+    cartegrise: "111-888-8888",
+    matricule: "2590-120",
+    date: 35,
+    etat: "mission",
+  },
   {
     id: 2,
-    cartegrise: "Lannister",
-    matricule: "Cersei",
+    cartegrise: "111-888-8888",
+    matricule: "2590-120",
     date: 42,
     etat: "panne",
   },
   {
     id: 3,
-    cartegrise: "Lannister",
-    matricule: "Jaime",
+    cartegrise: "111-888-8888",
+    matricule: "2590-120",
     date: 45,
     etat: "mission",
   },
-  { id: 4, cartegrise: "Stark", matricule: "Arya", date: 16, etat: "bonne" },
+  {
+    id: 4,
+    cartegrise: "111-888-8888",
+    matricule: "Arya",
+    date: 16,
+    etat: "bonne",
+  },
   {
     id: 5,
-    cartegrise: "Targaryen",
+    cartegrise: "111-888-8888",
     matricule: "Daenerys",
-    date: null,
+    date: 23,
     etat: "panne",
   },
   {
     id: 6,
-    cartegrise: "Melisandre",
+    cartegrise: "111-888-8888",
     matricule: null,
     date: 150,
     etat: "bonne",
   },
   {
     id: 7,
-    cartegrise: "Clifford",
+    cartegrise: "111-888-8888",
     matricule: "Ferrara",
     date: 44,
     etat: "entretien",
   },
   {
     id: 8,
-    cartegrise: "Frances",
+    cartegrise: "111-888-8888",
     matricule: "Rossini",
     date: 36,
     etat: "mission",
   },
   {
     id: 9,
-    cartegrise: "Roxie",
-    matricule: "Harvey",
+    cartegrise: "111-888-8888",
+    matricule: "22-88-888",
     date: 65,
     etat: "panne",
   },
-  { id: 10, cartegrise: "Ines", matricule: "Bday", date: 25, etat: "bonne" },
+  {
+    id: 10,
+    cartegrise: "222-777",
+    matricule: "2-222-222",
+    date: 25,
+    etat: "bonne",
+  },
 ];
 
 function Table() {
@@ -66,20 +84,16 @@ function Table() {
   const toggleShow = () => setShow(!show);
 
   const columns = [
-    { field: "id", headerName: "ID", width: 70 },
-    { field: "matricule", headerName: "Matricule", width: 130 },
-    { field: "cartegrise", headerName: "Carte grise", width: 130 },
-    {
-      field: "date",
-      headerName: "date",
-      type: "number",
-      width: 90,
-    },
+    { field: "id", headerName: "ID", width: 30, flex: 1 },
+    { field: "matricule", headerName: "Matricule", width: 130, flex: 1 },
+    { field: "cartegrise", headerName: "Carte grise", width: 130, flex: 1 },
+    { field: "date", headerName: "date", type: "number", width: 50, flex: 1 },
     {
       field: "etat",
       headerName: "etat",
       description: "This column has a value getter and is not sortable.",
       sortable: false,
+      flex: 1,
       width: 160,
       renderCell: ({ value }) => {
         let customClassName;
@@ -110,12 +124,17 @@ function Table() {
 
     {
       field: "viewMore",
-      headerName: "",
+      headerName: "Fiche technique",
+      flex: 1,
       width: 160,
       renderCell: () => (
-        <button className="btn btn-info" onClick={toggleShow}>
-          View more
-        </button>
+        <button
+            className="btn btn-warning"
+            onClick={toggleShow}
+            title="Voir plus"
+          >
+            <i className="fa-solid fa-eye"></i>
+          </button>
       ),
     },
   ];
