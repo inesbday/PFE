@@ -1,13 +1,39 @@
 import React from "react";
 
 import { Modal, Button, Row, Col, FormGroup } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import { Input, Label } from "reactstrap";
 
-function ViewMore({ show, handleClose }) {
+function ViewMore({ show, handleClose, rowID }) {
+  const {
+    numero,
+    date,
+    client,
+    typeFacture,
+    vehicule,
+    remorque,
+    chauffeur,
+    representant,
+    nBT,
+    dateBT,
+    nBonReception,
+    dateBonReception,
+    produit,
+    unite,
+    lieuDepart,
+    lieuArrive,
+    distance,
+    quantite,
+    ecartPoids,
+    etat,
+  } = useSelector((state) => state.missions).filter(
+    ({ id }) => id === rowID[0]
+  )[0];
+
   return (
     <Modal show={show} onHide={handleClose} size="lg">
       <Modal.Header closeButton>
-        <Modal.Title> Mission M01 </Modal.Title>
+        <Modal.Title> Mission M{rowID[0]} </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Row>
@@ -18,99 +44,99 @@ function ViewMore({ show, handleClose }) {
           <Col>
             <Row>
               <h5 className="text-info col-6">Date:</h5>
-              <p className="col-6 text-left">20/03/2022</p>
+              <p className="col-6 text-left">{date}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">Clients:</h5>
-              <p className="col-6 text-left">Ines Bday</p>
+              <p className="col-6 text-left">{client}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">Type de facturation:</h5>
-              <p className="col-6 text-left">Type 1</p>
+              <p className="col-6 text-left">{typeFacture}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">Véhicule:</h5>
-              <p className="col-6 text-left">Peugot</p>
+              <p className="col-6 text-left">{vehicule}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">Remorque:</h5>
-              <p className="col-6 text-left">R1</p>
+              <p className="col-6 text-left">{remorque}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">Chauffeur:</h5>
-              <p className="col-6">Mohamed mohamed</p>
+              <p className="col-6">{chauffeur}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">N° BT:</h5>
-              <p className="col-6">123456</p>
+              <p className="col-6">{nBT}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">Date BT:</h5>
-              <p className="col-6">22/03/2022</p>
+              <p className="col-6">{dateBT}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">N° bon réception:</h5>
-              <p className="col-6">22/03/2022</p>
+              <p className="col-6">{nBonReception}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">Date bon réception:</h5>
-              <p className="col-6">22/03/2022</p>
+              <p className="col-6">{dateBonReception}</p>
             </Row>
             <Row>
               <h5 className="text-info col-6">Produit :</h5>
-              <p className="col-6">blé</p>
+              <p className="col-6">{produit}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">Unité</h5>
-              <p className="col-6">KG</p>
+              <p className="col-6">{unite}</p>
             </Row>
           </Col>
 
           <Col>
             <Row>
               <h5 className="text-info col-6">Lieu depart:</h5>
-              <p className="col-6">sousse</p>
+              <p className="col-6">{lieuDepart}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">lieu arrivée</h5>
-              <p className="col-6">sfax</p>
+              <p className="col-6">{lieuArrive}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">Distance</h5>
-              <p className="col-6">0</p>
+              <p className="col-6">{distance}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">Quantité</h5>
-              <p className="col-6">0.0000</p>
+              <p className="col-6">{quantite}</p>
             </Row>
 
             <Row>
-              <h5 className="text-info col-6">Ecart poinds</h5>
-              <p className="col-6">0.000</p>
+              <h5 className="text-info col-6">Ecart poids</h5>
+              <p className="col-6">{ecartPoids}</p>
             </Row>
             <Row>
               <FormGroup>
                 <Label>Etat</Label>
                 <Input type="select">
-                  <option>En attente</option>
-                  <option>En cours</option>
-                  <option>Annulée</option>
-                  <option>Effectuée</option>
+                  <option selected={etat === "attente"}>En attente</option>
+                  <option selected={etat === "en_cours"}>En cours</option>
+                  <option selected={etat === "annulée"}>Annulée</option>
+                  <option selected={etat === "effectuée"}>Effectuée</option>
                 </Input>
-                <Button className="mt-2">Met à jour l'état</Button>
+                <Button className="mt-2">Met jour l'état</Button>
               </FormGroup>
             </Row>
           </Col>

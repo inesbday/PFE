@@ -6,9 +6,13 @@ import { combineReducers, applyMiddleware, createStore } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import missions from "./reducers/missionReducer";
+import ui from "./reducers/uiReducer";
+import notifications from "./reducers/notificationsReducer";
 
 const reducer = combineReducers({
   missions,
+  ui,
+  notifications,
 });
 
 const initialState = {};

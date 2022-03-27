@@ -44,7 +44,7 @@ function ViewMore({ show, handleClose }) {
 
             <Row>
               <h5 className="text-info col-6">Chauffeur:</h5>
-              <p className="col-6">Hayfa Wahbi</p>
+              <p className="col-6">Ahmed Ali</p>
             </Row>
 
             <Row>

@@ -2,86 +2,30 @@ import React, { useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import styles from "./table.module.css";
 import ViewMore from "./ViewMore";
-const rows = [
-  {
-    id: 1,
-    client: "Simsoft",
-    vehicule: "Peugot",
-    chauffeur: "Ines Bday",
-    lieuDepart: "Sousse",
-    lieuArrive: "Tunis",
-    produit: "Blé",
-    etat: "attente",
-  },
-  {
-    id: 2,
-    client: "Simsoft",
-    vehicule: "Peugot",
-    chauffeur: "Ines Bday",
-    lieuDepart: "Sousse",
-    lieuArrive: "Tunis",
-    produit: "Blé",
-    etat: "en_cours",
-  },
-  {
-    id: 3,
-    client: "Simsoft",
-    vehicule: "Peugot",
-    chauffeur: "Ines Bday",
-    lieuDepart: "Sousse",
-    lieuArrive: "Tunis",
-    produit: "Blé",
-    etat: "annulée",
-  },
-  {
-    id: 4,
-    client: "Simsoft",
-    vehicule: "Peugot",
-    chauffeur: "Ines Bday",
-    lieuDepart: "Sousse",
-    lieuArrive: "Tunis",
-    produit: "Blé",
-    etat: "en_cours",
-  },
-  {
-    id: 5,
-    client: "Simsoft",
-    vehicule: "Peugot",
-    chauffeur: "Ines Bday",
-    lieuDepart: "Sousse",
-    lieuArrive: "Tunis",
-    produit: "Blé",
-    etat: "effectuée",
-  },
-  {
-    id: 6,
-    client: "Simsoft",
-    vehicule: "Peugot",
-    chauffeur: "Ines Bday",
-    lieuDepart: "Sousse",
-    lieuArrive: "Tunis",
-    produit: "Blé",
-    etat: "effectuée",
-  },
-  {
-    id: 7,
-    client: "Simsoft",
-    vehicule: "Peugot",
-    chauffeur: "Ines Bday",
-    lieuDepart: "Sousse",
-    lieuArrive: "Tunis",
-    produit: "Blé",
-    etat: "effectuée",
-  },
-];
+import { useSelector } from "react-redux";
+import missions from "../../redux/reducers/missionReducer";
+
+let rowID;
 
 function Table() {
   const [show, setShow] = useState(false);
 
-  const toggleShow = () => setShow(!show);
+  let rows = useSelector((state) => state.missions);
+  rows = [...rows].reverse();
+
+  const toggleShow = () => {
+    setShow(!show);
+  };
 
   const columns = [
-    { field: "id", headerName: "ID", width: 60 },
+    {
+      field: "id",
+      headerName: "ID",
+      width: 60,
+      valueFormatter: (params) => {
+        return params.value.toString().substring(0, 2);
+      },
+    },
     { field: "client", headerName: "Client", width: 100 },
     {
       field: "vehicule",
@@ -178,8 +122,11 @@ function Table() {
         columns={columns}
         pageSize={5}
         rowsPerPageOptions={[5]}
+        onSelectionModelChange={(id) => {
+          rowID = id;
+        }}
       />
-      <ViewMore show={show} handleClose={toggleShow} />
+      {show && <ViewMore show={show} handleClose={toggleShow} rowID={rowID} />}
     </div>
   );
 }

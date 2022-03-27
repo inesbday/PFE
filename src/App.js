@@ -6,6 +6,8 @@ import Footer from "./components/Footer/Footer";
 import Sidebar from "./components/Sidebar/Sidebar";
 import routes from "./routes";
 
+import { ToastContainer } from "react-toastify";
+
 import sidebarImage from "./assets/img/sidebar.jpg";
 
 function App() {
@@ -48,6 +50,7 @@ function App() {
 
   return (
     <div className="wrapper">
+      <ToastContainer pauseOnHover={false} autoClose={2000} />
       <Sidebar color={color} image={hasImage ? image : ""} routes={routes} />
       <div className="main-panel" ref={mainPanel}>
         <AdminNavbar />

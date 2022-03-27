@@ -3766,6 +3766,7 @@ Copyright (c) 2015 Daniel Eden
     right: 0 !important;
     left: auto;
     position: absolute;
+    display: none;
 
     -webkit-transform: translate3d(262px, 0, 0);
     -moz-transform: translate3d(262px, 0, 0);

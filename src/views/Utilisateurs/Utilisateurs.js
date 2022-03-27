@@ -17,6 +17,7 @@ function Utilisateurs() {
               <Card.Header>
                 <Card.Title as="h3">Liste des utilisateurs </Card.Title>
               </Card.Header>
+            
               <Button className="btn-primary" onClick={toggleOpenAjouterUser}>
                 Ajouter user
               </Button>

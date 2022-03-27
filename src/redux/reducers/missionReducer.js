@@ -4,7 +4,9 @@ import {
   MODIFY_MISSION,
 } from "../constants/missionsActions";
 
-const INITIAL_STATE = [{ name: "Ines", lastName: "bday" }];
+import data from "./missionData";
+
+const INITIAL_STATE = [...data];
 
 const missions = (state = INITIAL_STATE, action) => {
   switch (action.type) {

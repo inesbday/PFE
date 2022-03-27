@@ -1,4 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+
+import { v4 as uuidv4 } from "uuid";
+
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // import { Modal, Button, Row, Container, Col } from "react-bootstrap";
 import {
@@ -14,8 +20,52 @@ import {
   Row,
   Col,
 } from "reactstrap";
+import { addMission } from "../../../redux/actions/missionActions";
+import { addNotification } from "../../../redux/actions/notificationsActions";
+
+const today = new Date();
+
+const date =
+  today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
 
 function AjouterMission({ show, handleClose }) {
+  const [state, setState] = useState({
+    id: uuidv4(),
+    numero: "",
+    date: "",
+    client: "",
+    typeFacture: "",
+    vehicule: "",
+    remorque: "",
+    chauffeur: "",
+    representant: "",
+    nBT: "",
+    dateBT: "",
+    nBonReception: "",
+    dateBonReception: "",
+    produit: "",
+    unite: "",
+    lieuDepart: "",
+    lieuArrive: "",
+    distance: "",
+    quantite: "",
+    ecartPoids: "",
+    etat: "attente",
+  });
+
+  const dispatch = useDispatch();
+
+  const changeCreds = (event) => {
+    setState({ ...state, [event.target.name]: event.target.value });
+  };
+
+  const handleSubmit = () => {
+    dispatch(addMission(state));
+    dispatch(addNotification({ id: uuidv4(), date, seen: false }));
+    handleClose();
+    toast.success("Mission ajouté avec succées");
+  };
+
   return (
     <Modal
       isOpen={show}
@@ -41,7 +91,8 @@ function AjouterMission({ show, handleClose }) {
                       name="numero"
                       type="text"
                       required
-                      value="980"
+                      value={state.numero}
+                      onChange={(event) => changeCreds(event)}
                     />
                   </Col>
 
@@ -49,7 +100,14 @@ function AjouterMission({ show, handleClose }) {
                     <Label for="date">
                       Date <strong className="text-danger">*</strong>
                     </Label>
-                    <Input id="date" name="date" type="date" required />
+                    <Input
+                      id="date"
+                      name="date"
+                      type="date"
+                      onChange={(event) => changeCreds(event)}
+                      value={state.date}
+                      required
+                    />
                   </Col>
                 </Row>
               </FormGroup>
@@ -60,7 +118,15 @@ function AjouterMission({ show, handleClose }) {
                     <Label for="client">
                       Client <strong className="text-danger">*</strong>
                     </Label>
-                    <Input id="client" name="client" type="select" required>
+
+                    <Input
+                      id="client"
+                      name="client"
+                      type="select"
+                      value={state.client}
+                      required
+                      onChange={(event) => changeCreds(event)}
+                    >
                       <option>Fait votre choix...</option>
                       <option>Mostfa</option>
                       <option>Hmed</option>
@@ -82,7 +148,9 @@ function AjouterMission({ show, handleClose }) {
                       id="typeFacture"
                       name="typeFacture"
                       type="select"
+                      value={state.typeFacture}
                       required
+                      onChange={(event) => changeCreds(event)}
                     >
                       <option>Fait votre choix...</option>
                       <option>Type 1</option>
@@ -99,7 +167,14 @@ function AjouterMission({ show, handleClose }) {
                     <Label for="vehicule">
                       Véhicule <strong className="text-danger">*</strong>
                     </Label>
-                    <Input id="vehicule" name="vehicule" type="select" required>
+                    <Input
+                      id="vehicule"
+                      name="vehicule"
+                      type="select"
+                      value={state.vehicule}
+                      required
+                      onChange={(event) => changeCreds(event)}
+                    >
                       <option>Fait votre choix...</option>
                       <option>V 1</option>
                       <option>V 2</option>
@@ -115,7 +190,14 @@ function AjouterMission({ show, handleClose }) {
                     <Label for="remorque">
                       Remorque <strong className="text-danger">*</strong>
                     </Label>
-                    <Input id="remorque" name="remorque" type="select" required>
+                    <Input
+                      id="remorque"
+                      name="remorque"
+                      type="select"
+                      value={state.remorque}
+                      required
+                      onChange={(event) => changeCreds(event)}
+                    >
                       <option>Fait votre choix...</option>
                       <option>R 1</option>
                       <option>R 2</option>
@@ -136,6 +218,8 @@ function AjouterMission({ show, handleClose }) {
                       name="chauffeur"
                       type="select"
                       required
+                      value={state.chauffeur}
+                      onChange={(event) => changeCreds(event)}
                     >
                       <option>Fait votre choix...</option>
                       <option>Ch 1</option>
@@ -157,6 +241,8 @@ function AjouterMission({ show, handleClose }) {
                       name="representant"
                       type="select"
                       required
+                      value={state.representant}
+                      onChange={(event) => changeCreds(event)}
                     >
                       <option>Fait votre choix...</option>
                       <option>R 1</option>
@@ -178,7 +264,9 @@ function AjouterMission({ show, handleClose }) {
                       name="nBT"
                       type="text"
                       placeholder="N° bon de réception"
+                      value={state.nBT}
                       required
+                      onChange={(event) => changeCreds(event)}
                     />
                   </Col>
                 </Row>
@@ -194,7 +282,9 @@ function AjouterMission({ show, handleClose }) {
                       id="dateBT"
                       name="dateBT"
                       type="date"
+                      value={state.dateBT}
                       required
+                      onChange={(event) => changeCreds(event)}
                     ></Input>
                   </Col>
                 </Row>
@@ -212,7 +302,9 @@ function AjouterMission({ show, handleClose }) {
                       name="nBonReception"
                       type="text"
                       placeholder="N° bon de réception"
+                      value={state.nBonReception}
                       required
+                      onChange={(event) => changeCreds(event)}
                     />
                   </Col>
                 </Row>
@@ -229,7 +321,9 @@ function AjouterMission({ show, handleClose }) {
                       id="dateBonReception"
                       name="dateBonReception"
                       type="date"
+                      value={state.dateBonReception}
                       required
+                      onChange={(event) => changeCreds(event)}
                     />
                   </Col>
                 </Row>
@@ -241,7 +335,14 @@ function AjouterMission({ show, handleClose }) {
                     <Label for="produit">
                       Produit <strong className="text-danger">*</strong>
                     </Label>
-                    <Input id="produit" name="produit" type="select" required>
+                    <Input
+                      id="produit"
+                      name="produit"
+                      type="select"
+                      value={state.produit}
+                      required
+                      onChange={(event) => changeCreds(event)}
+                    >
                       <option>Fait votre choix...</option>
                       <option>Produit 1</option>
                       <option>Produit 2</option>
@@ -257,7 +358,14 @@ function AjouterMission({ show, handleClose }) {
                     <Label for="unite">
                       Unité <strong className="text-danger">*</strong>
                     </Label>
-                    <Input id="produit" name="unite" type="select" required>
+                    <Input
+                      id="produit"
+                      name="unite"
+                      type="select"
+                      value={state.unite}
+                      required
+                      onChange={(event) => changeCreds(event)}
+                    >
                       <option>Fait votre choix...</option>
                       <option>Unité 1</option>
                       <option>Unité 2</option>
@@ -278,8 +386,10 @@ function AjouterMission({ show, handleClose }) {
                     </Label>
                     <Input
                       id="lieudepart"
-                      name="lieudepart"
+                      name="lieuDepart"
                       type="select"
+                      value={state.lieuDepart}
+                      onChange={(event) => changeCreds(event)}
                       required
                     >
                       <option>Fait votre choix...</option>
@@ -300,8 +410,10 @@ function AjouterMission({ show, handleClose }) {
                     </Label>
                     <Input
                       id="lieuarrivé"
-                      name="lieuarrivé"
+                      name="lieuArrive"
                       type="select"
+                      value={state.lieuArrive}
+                      onChange={(event) => changeCreds(event)}
                       required
                     >
                       <option>Fait votre choix...</option>
@@ -324,7 +436,9 @@ function AjouterMission({ show, handleClose }) {
                       id="distance"
                       name="distance"
                       type="text"
+                      value={state.distance}
                       placeholder="0"
+                      onChange={(event) => changeCreds(event)}
                       required
                     />
                   </Col>
@@ -335,13 +449,15 @@ function AjouterMission({ show, handleClose }) {
                 <Row>
                   <Col>
                     <Label for="Quantité">
-                    Quantité <strong className="text-danger">*</strong>
+                      Quantité <strong className="text-danger">*</strong>
                     </Label>
                     <Input
                       id="quantité"
-                      name="quantité"
+                      name="quantite"
                       type="text"
+                      value={state.quantite}
                       placeholder="0.000"
+                      onChange={(event) => changeCreds(event)}
                       required
                     />
                   </Col>
@@ -352,13 +468,15 @@ function AjouterMission({ show, handleClose }) {
                 <Row>
                   <Col>
                     <Label for="Ecart Poids">
-                    Ecart Poids <strong className="text-danger">*</strong>
+                      Ecart Poids <strong className="text-danger">*</strong>
                     </Label>
                     <Input
                       id="ecartPoids"
                       name="ecartPoids"
                       type="text"
                       placeholder="0.000"
+                      value={state.ecartPoids}
+                      onChange={(event) => changeCreds(event)}
                       required
                     />
                   </Col>
@@ -374,7 +492,7 @@ function AjouterMission({ show, handleClose }) {
           Annuler
         </Button>
 
-        <Button color="success" onClick={handleClose}>
+        <Button color="success" onClick={handleSubmit}>
           Ajouter
         </Button>
       </ModalFooter>
