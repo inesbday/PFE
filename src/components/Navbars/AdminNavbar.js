@@ -8,6 +8,7 @@ import { toggleSidebar } from "../../redux/actions/uiActions";
 import { Row, Container, Col } from "reactstrap";
 import { modifyNotification } from "../../redux/actions/notificationsActions";
 import notifications from "../../redux/reducers/notificationsReducer";
+import { useHistory } from "react-router-dom";
 
 function Header() {
   const location = useLocation();
@@ -20,6 +21,8 @@ function Header() {
   const notificationsNotSeen = notifications.filter(
     ({ seen }) => seen === false
   );
+
+  let history = useHistory();
 
   const mobileSidebarToggle = (e) => {
     e.preventDefault();
@@ -47,8 +50,9 @@ function Header() {
   };
 
   const handleSeen = (id) => {
-    console.log("hi", id);
     dispatch(modifyNotification(id));
+
+    history.push("/admin/notifications");
   };
 
   return (

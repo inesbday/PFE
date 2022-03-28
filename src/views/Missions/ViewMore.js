@@ -27,7 +27,7 @@ function ViewMore({ show, handleClose, rowID }) {
     ecartPoids,
     etat,
   } = useSelector((state) => state.missions).filter(
-    ({ id }) => id === rowID[0]
+    ({ id }) => id === rowID
   )[0];
 
   return (

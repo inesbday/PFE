@@ -7,6 +7,7 @@ import Amendes from "./views/Amendes/Amendes";
 import Pannes from "./views/Pannes/Pannes";
 import MissionChauffeur from "./views/MissionChauffeur/MissionChauffeur";
 import Utilisateurs from "./views/Utilisateurs/Utilisateurs";
+import Notifications from "./views/Notifications/Notifications";
 const dashboardRoutes = [
   {
     path: "/dashboard",
@@ -72,6 +73,14 @@ const dashboardRoutes = [
     name: "MissionChauffeur",
     icon: "nc-icon nc-bell-55",
     component: MissionChauffeur,
+    layout: "/admin",
+  },
+
+  {
+    path: "/notifications",
+    name: "Notifications",
+    icon: "nc-icon nc-bell-55",
+    component: Notifications,
     layout: "/admin",
   },
 ];

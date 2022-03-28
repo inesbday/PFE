@@ -8,11 +8,13 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import missions from "./reducers/missionReducer";
 import ui from "./reducers/uiReducer";
 import notifications from "./reducers/notificationsReducer";
+import amendes from './reducers/amendeReducer';
 
 const reducer = combineReducers({
   missions,
   ui,
   notifications,
+  amendes,
 });
 
 const initialState = {};

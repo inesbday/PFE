@@ -61,7 +61,9 @@ function AjouterMission({ show, handleClose }) {
 
   const handleSubmit = () => {
     dispatch(addMission(state));
-    dispatch(addNotification({ id: uuidv4(), date, seen: false }));
+    dispatch(
+      addNotification({ id: uuidv4(), date, seen: false, id_mission: state.id })
+    );
     handleClose();
     toast.success("Mission ajouté avec succées");
   };

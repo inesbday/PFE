@@ -9,7 +9,7 @@ let rowID;
 function Table() {
   const [show, setShow] = useState(false);
 
-  let rows = useSelector((state) => state.missions);
+  let rows = useSelector((state) => state.amendes);
   rows = [...rows].reverse();
 
   const toggleShow = () => {
@@ -25,32 +25,29 @@ function Table() {
         return params.value.toString().substring(0, 2);
       },
     },
-    { field: "client", headerName: "Client", width: 100 },
+    { field: "nomchauffeur", headerName: "Nom chauffeur", width: 130 },
     {
-      field: "vehicule",
-      headerName: "Véhicule",
+      field: "nomvehicule",
+      headerName: "Nom vehicule",
+      width: 130,
+    },
+    {
+      field: "cause",
+      headerName: "Cause",
       width: 100,
     },
+
     {
-      field: "chauffeur",
-      headerName: "Chauffeur",
-      width: 130,
+      field: "date",
+      headerName: "Date",
+      width: 120,
     },
     {
-      field: "lieuDepart",
-      headerName: "Lieu départ",
-      width: 130,
-    },
-    {
-      field: "lieuArrive",
-      headerName: "Lieu arrivé",
-      width: 130,
-    },
-    {
-      field: "produit",
-      headerName: "Produit",
+      field: "montant",
+      headerName: "Montant",
       width: 100,
     },
+
     {
       field: "etat",
       headerName: "Etat",
@@ -64,16 +61,11 @@ function Table() {
           case "attente":
             customClassName = styles.attente;
             break;
-          case "annulée":
-            customClassName = styles.annulée;
-            break;
 
-          case "effectuée":
+          case "Payée":
             customClassName = styles.effectuée;
             break;
-          case "en_cours":
-            customClassName = styles.en_cours;
-            break;
+
           default:
             break;
         }
