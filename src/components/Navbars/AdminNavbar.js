@@ -7,8 +7,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleSidebar } from "../../redux/actions/uiActions";
 import { Row, Container, Col } from "reactstrap";
 import { modifyNotification } from "../../redux/actions/notificationsActions";
-import notifications from "../../redux/reducers/notificationsReducer";
+
 import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Header() {
   const location = useLocation();
@@ -102,7 +103,11 @@ function Header() {
                 variant="default"
                 className="m-0"
               >
-                <i className="nc-icon nc-planet"></i>
+                <i
+                  className="nc-icon nc-bell-55
+
+"
+                ></i>
                 {notificationsNotSeen.length > 0 && (
                   <span className="notification">
                     {notificationsNotSeen.length}
@@ -133,7 +138,7 @@ function Header() {
                 onClick={(e) => e.preventDefault()}
               >
                 <i className="nc-icon nc-zoom-split"></i>
-                <span className="d-lg-block"> Search</span>
+                <span className="d-lg-block">Rechercher</span>
               </Nav.Link>
             </Nav.Item>
           </Nav>
@@ -144,7 +149,7 @@ function Header() {
                 href="#pablo"
                 onClick={(e) => e.preventDefault()}
               >
-                <span className="no-icon">Account</span>
+                <span className="no-icon">Compte</span>
               </Nav.Link>
             </Nav.Item>
             <Dropdown as={Nav.Item}>
@@ -194,12 +199,8 @@ function Header() {
               </Dropdown.Menu>
             </Dropdown>
             <Nav.Item>
-              <Nav.Link
-                className="m-0"
-                href="#pablo"
-                onClick={(e) => e.preventDefault()}
-              >
-                <span className="no-icon">Log out</span>
+              <Nav.Link className="m-0">
+                <Link to="/login">Se deconnecter</Link>
               </Nav.Link>
             </Nav.Item>
           </Nav>

@@ -53,13 +53,13 @@ function Missions() {
           />
         </Col>
       </Row>
-      <Row className="d-flex justify-content-between align-items-center">
-        <h4>Liste des missions</h4>
-
-        <Button className="btn-primary" onClick={toggleOpenAjouterMission}>
-          Ajouter mission
-        </Button>
-      </Row>
+      <h4>Liste des missions</h4>
+      <Button
+        className=" btn btn-info rounded "
+        onClick={toggleOpenAjouterMission}
+      >
+        Ajouter une mission
+      </Button>
 
       <Row className="mt-5">
         <Table />

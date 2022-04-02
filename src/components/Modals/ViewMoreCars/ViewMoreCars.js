@@ -68,7 +68,9 @@ function ViewMoreCars({ show, handleClose }) {
 
           <Col>
             <img
-              src="https://i.pinimg.com/originals/5d/4d/b6/5d4db6e517a689e87c4266f61d77f803.png"
+              src="https://i.pinim
+              g.com/originals/5d/4d/b6/5d4db6e517a689e87c4266f61d77f803.png"
+              
               width={200}
             />
           </Col>

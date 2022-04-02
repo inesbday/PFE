@@ -71,7 +71,8 @@ function AjouterAmende({ show, handleClose }) {
               <Row>
                 <Col>
                   <Label for="nomchauffeur">
-                    nomchauffeur <strong className="text-danger">*</strong>
+                    Nom et prenom du chauffeur{" "}
+                    <strong className="text-danger">*</strong>
                   </Label>
                   <Input
                     id="nomchauffeur"
@@ -85,7 +86,7 @@ function AjouterAmende({ show, handleClose }) {
 
                 <Col>
                   <Label for="nomvehicule">
-                    nomvehicule <strong className="text-danger">*</strong>
+                    Vehicule <strong className="text-danger">*</strong>
                   </Label>
                   <Input
                     id="nomvehicule"
@@ -98,7 +99,7 @@ function AjouterAmende({ show, handleClose }) {
                 </Col>
 
                 <Label for="cause">
-                  cause <strong className="text-danger">*</strong>
+                  Cause <strong className="text-danger">*</strong>
                 </Label>
                 <Input
                   id="cause"
@@ -129,7 +130,7 @@ function AjouterAmende({ show, handleClose }) {
               <Row>
                 <Col>
                   <Label for="montant">
-                    montant <strong className="text-danger">*</strong>
+                    Montant <strong className="text-danger">*</strong>
                   </Label>
                   <Input
                     id="montant"
@@ -144,7 +145,7 @@ function AjouterAmende({ show, handleClose }) {
 
                 <Col>
                   <Label for="piecejointe">
-                    piece jointe <strong className="text-danger">*</strong>
+                    Piece jointe <strong className="text-danger">*</strong>
                   </Label>
                   <Input
                     id="piecejointe"

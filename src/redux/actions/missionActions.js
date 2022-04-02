@@ -1,4 +1,8 @@
-import { ADD_MISSION, DELETE_MISSION, MODIFY_MISSION } from "../constants/missionsActions";
+import {
+  ADD_MISSION,
+  DELETE_MISSION,
+  MODIFY_MISSION,
+} from "../constants/missionsConstants";
 
 export const addMission = (payload) => {
   return {

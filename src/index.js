@@ -15,6 +15,7 @@ import Login from "./views/Auth/Login";
 import ForgotPassword from "./views/Auth/ForgotPassword";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import Test from "./views/Test";
 
 ReactDOM.render(
   <Provider store={store}>
@@ -23,6 +24,8 @@ ReactDOM.render(
         <Route path="/admin" render={(props) => <App {...props} />} />
         <Route path="/login" render={() => <Login />} />
         <Route path="/forgotpassword" render={() => <ForgotPassword />} />
+
+        <Route path="/test" render={() => <Test />} />
 
         <Redirect from="/" to="/admin/dashboard" />
       </Switch>

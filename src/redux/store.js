@@ -9,12 +9,13 @@ import missions from "./reducers/missionReducer";
 import ui from "./reducers/uiReducer";
 import notifications from "./reducers/notificationsReducer";
 import amendes from './reducers/amendeReducer';
-
+import users from './reducers/userReducer';
 const reducer = combineReducers({
   missions,
   ui,
   notifications,
   amendes,
+  users
 });
 
 const initialState = {};

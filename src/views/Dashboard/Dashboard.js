@@ -8,14 +8,14 @@ import MissionstatsCard from "../../components/MissionStatsCard/MissionstatsCard
 
 function Dashboard() {
   return (
-    <Container fluid>
+    <Container>
       <Row>
         <Col lg="3" sm="6">
           <InfosCard
             title="Vehicules"
             infos="5"
             iconName="fa-solid fa-car-side"
-            bgColor="bg-success"
+            bgColor="bg-secondary"
             linkCard="/admin/vehicules"
           />
         </Col>
@@ -64,16 +64,16 @@ function Dashboard() {
         <Col>
           <Stack spacing={2}>
             <Alert variant="filled" severity="error">
-              Le chauffeur X a declaré un accident !{" "}
+              Le chauffeur Ali Ahmed a declaré un accident !{" "}
             </Alert>
             <Alert variant="filled" severity="warning">
               4 Assurance(s) seront périmées apres 4 jours !
             </Alert>
             <Alert variant="filled" severity="info">
-              This is an info alert — check it out!
+              Le chauffeur Ali Ahmed a declaré une amende!{" "}
             </Alert>
             <Alert variant="filled" severity="success">
-              This is a success alert — check it out!
+              This is a success alert
             </Alert>
           </Stack>
         </Col>

@@ -31,7 +31,7 @@ class Footer extends Component {
             </ul>
             <p className="copyright text-center">
               © {new Date().getFullYear()}{" "}
-              <a href="http://www.simsoft.com.tn/en/">Simsoft</a>
+              <a href="http://www.simsoft.com.tn">Simsoft</a>
             </p>
           </nav>
         </Container>

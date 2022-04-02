@@ -2,7 +2,7 @@ import {
   ADD_MISSION,
   DELETE_MISSION,
   MODIFY_MISSION,
-} from "../constants/missionsActions";
+} from "../constants/missionsConstants";
 
 import data from "./missionData";
 

@@ -1,4 +1,4 @@
-import { ADD_AMENDE, DELETE_AMENDE, MODIFY_AMENDE } from "../constants/amendesActions";
+import { ADD_AMENDE, DELETE_AMENDE, MODIFY_AMENDE } from "../constants/amendesConstants";
 
 export const addAmende = (payload) => {
   return {

@@ -1,4 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // import { Modal, Button, Row, Container, Col } from "react-bootstrap";
 import {
@@ -15,7 +19,37 @@ import {
   Col,
 } from "reactstrap";
 
+//import { addNotification } from "../../../redux/actions/notificationsActions";
+import { addUser } from "../../../redux/actions/usersActions";
+
+const today = new Date();
+
+const date =
+  today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
+
 function AjouterUser({ show, handleClose }) {
+  const [state, setState] = useState({
+    id: uuidv4(),
+    nom: "",
+    prenom: "",
+    email: "",
+    numtel: "",
+    role: "",
+    datecreation: "",
+  });
+
+  const dispatch = useDispatch();
+
+  const changeCreds = (event) => {
+    setState({ ...state, [event.target.name]: event.target.value });
+  };
+
+  const handleSubmit = () => {
+    dispatch(addUser(state));
+
+    handleClose();
+  };
+
   return (
     <Modal
       isOpen={show}
@@ -24,127 +58,106 @@ function AjouterUser({ show, handleClose }) {
       fullscreen="sm"
       size="lg"
     >
-      <ModalHeader toggle={handleClose}>
-        <h3>Ajouter un nouvel utilisateur</h3>
-      </ModalHeader>
+      <ModalHeader toggle={handleClose}>Ajouter un utilisateur </ModalHeader>
       <ModalBody>
         <Form>
           <Row>
             {/* Left col */}
-            <Col>
-              <FormGroup>
-                <Row>
-                  <Col>
-                    <Label for="numero">
-                      Nom d'utilisateur{" "}
-                      <strong className="text-danger">*</strong>
-                    </Label>
-                    <Input
-                      id="nomuser"
-                      name="nomuser"
-                      type="text"
-                      required
-                      placeholder="nom user"
-                    />
-                  </Col>
-
-                  <Col>
-                    <Label for="numero">
-                      Prenom utilisateur{" "}
-                      <strong className="text-danger">*</strong>
-                    </Label>
-                    <Input
-                      id="prenomutilisateur"
-                      name="prenomutilisateur"
-                      type="text"
-                      required
-                      placeholder="prenom utilisateur"
-                    />
-                  </Col>
-                </Row>
-              </FormGroup>
-              <FormGroup>
-                <Row>
-                  <Col>
-                    <Label for="nBonReception">
-                      Email <strong className="text-danger">*</strong>
-                    </Label>
-                    <Input
-                      type="email"
-                      name="email"
-                      id="email"
-                      placeholder="email@email.com"
-                    />
-                  </Col>
-
-                  <Col>
-                    <FormGroup>
-                      <Row>
-                        <Col>
-                          <Label for="nBonReception">
-                            N° de telephone{" "}
-                            <strong className="text-danger">*</strong>
-                          </Label>
-                          <Input
-                            id="nTelephone"
-                            name="nTelephone"
-                            type="text"
-                            placeholder="N° de telephone"
-                            required
-                          />
-                        </Col>
-                      </Row>
-                    </FormGroup>
-                  </Col>
-                </Row>
-              </FormGroup>
-              <FormGroup>
-                <Row>
-                  <Col>
-                    <Label for="nBonReception">
-                      Mot de passe <strong className="text-danger">*</strong>
-                    </Label>
-                    <Input
-                      id="motdepasse"
-                      name="motdepasse"
-                      type="text"
-                      placeholder="motdepasse"
-                      required
-                    />
-                  </Col>
-                </Row>
-              </FormGroup>
-              <FormGroup>
-                <Row>
-                  <Label for="role">
-                    Role <strong className="text-danger">*</strong>
+            <FormGroup>
+              <Row>
+                <Col>
+                  <Label for="nom">
+                    Nom <strong className="text-danger">*</strong>
                   </Label>
-                  <Input id="role" name="role" type="select" required>
+                  <Input
+                    id="nom"
+                    name="nom"
+                    type="text"
+                    required
+                    value={state.nom}
+                    onChange={(event) => changeCreds(event)}
+                  />
+                </Col>
+
+                <Col>
+                  <Label for="prenom">
+                    Prenom <strong className="text-danger">*</strong>
+                  </Label>
+                  <Input
+                    id="prenom"
+                    name="prenom"
+                    type="text"
+                    required
+                    value={state.prenom}
+                    onChange={(event) => changeCreds(event)}
+                  />
+                </Col>
+
+                <Label for="email">
+                  Adresse Email <strong className="text-danger">*</strong>
+                </Label>
+                <Input
+                  id="email"
+                  name="email"
+                  type="text"
+                  required
+                  value={state.email}
+                  onChange={(event) => changeCreds(event)}
+                />
+
+                <Col>
+                  <Label for="numtel">
+                    N Telephone <strong className="text-danger">*</strong>
+                  </Label>
+                  <Input
+                    id="numtel"
+                    name="numtel"
+                    type="numtel"
+                    onChange={(event) => changeCreds(event)}
+                    value={state.numtel}
+                    required
+                  />
+                </Col>
+              </Row>
+            </FormGroup>
+
+            <FormGroup>
+              <Row>
+                <Col>
+                  <Label for="typeFacture">
+                    role <strong className="text-danger">*</strong>
+                  </Label>
+                  <Input
+                    id="role"
+                    name="role"
+                    type="select"
+                    value={state.typeFacture}
+                    required
+                    onChange={(event) => changeCreds(event)}
+                  >
                     <option>Fait votre choix...</option>
-                    <option>R 1</option>
-                    <option>R 2</option>
-                    <option>R 3</option>
+                    <option>Chauffeur</option>
+                    <option>Mecanicien</option>
+                    <option>Chef de parc</option>
                   </Input>
-                </Row>
-              </FormGroup>
-              <FormGroup>
-                <Row>
-                  <Col>
-                    <Label for="photoUtilisateur">
-                      Photo utilisateur{" "}
-                      <strong className="text-danger">*</strong>
-                    </Label>
-                    <Input
-                      id="photoutilisateur"
-                      name="photoutilisateur"
-                      type="text"
-                      placeholder="photo utilisateur"
-                      required
-                    />
-                  </Col>
-                </Row>
-              </FormGroup>
-            </Col>
+                </Col>
+
+                <Col>
+                  <Label for="datecreation">
+                    datecreation <strong className="text-danger">*</strong>
+                  </Label>
+                  <Input
+                    id="datecreation"
+                    name="datecreation"
+                    type="text"
+                    placeholder="datecreation"
+                    value={state.datecreation}
+                    required
+                    onChange={(event) => changeCreds(event)}
+                  />
+                </Col>
+              </Row>
+            </FormGroup>
 
             {/* Right col */}
           </Row>
@@ -156,7 +169,7 @@ function AjouterUser({ show, handleClose }) {
           Annuler
         </Button>
 
-        <Button color="success" onClick={handleClose}>
+        <Button color="success" onClick={handleSubmit}>
           Ajouter
         </Button>
       </ModalFooter>

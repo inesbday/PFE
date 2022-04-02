@@ -11,12 +11,10 @@ function Amendes() {
 
   return (
     <Container>
-      <Row className="d-flex justify-content-between align-items-center">
         <h4>Liste des Amendes</h4>
-        <Button className="btn btn-danger " onClick={toggleOpenAjouterAmende}>
+        <Button className="btn btn-danger rounded " onClick={toggleOpenAjouterAmende}>
           Declarer une amende
         </Button>
-      </Row>
 
       <Row className="mt-5">
         <Table />
