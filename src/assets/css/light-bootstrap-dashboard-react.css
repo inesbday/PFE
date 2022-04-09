@@ -2326,7 +2326,6 @@ fieldset[disabled] .form-control {
 /*!
 Animate.css - http://daneden.me/animate
 Licensed under the MIT license - http://opensource.org/licenses/MIT
-
 Copyright (c) 2015 Daniel Eden
 */
 .animated {
@@ -3766,6 +3765,8 @@ Copyright (c) 2015 Daniel Eden
     right: 0 !important;
     left: auto;
     position: absolute;
+    display: none;
+
     -webkit-transform: translate3d(262px, 0, 0);
     -moz-transform: translate3d(262px, 0, 0);
     -o-transform: translate3d(262px, 0, 0);
@@ -4503,10 +4504,8 @@ Copyright (c) 2015 Daniel Eden
 }
 
 /*--------------------------------
-
 nucleo-icons Web Font - built using nucleoapp.com
 License - nucleoapp.com/license/
-
 -------------------------------- */
 @font-face {
   font-family: "nucleo-icons";
