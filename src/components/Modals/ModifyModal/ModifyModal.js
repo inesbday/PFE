@@ -1,12 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-import { v4 as uuidv4 } from "uuid";
-
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
-// import { Modal, Button, Row, Container, Col } from "react-bootstrap";
 import {
   Modal,
   ModalHeader,
@@ -20,37 +14,38 @@ import {
   Row,
   Col,
 } from "reactstrap";
-import { addMission } from "../../../redux/actions/missionActions";
-import { addNotification } from "../../../redux/actions/notificationsActions";
+import { modifyMission } from "../../../redux/actions/missionActions";
 
-const today = new Date();
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const date =
-  today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
+function ModifyModal({ show, handleClose, rowID }) {
+  const mission = useSelector((state) => state.missions).filter(
+    ({ id }) => id === rowID
+  )[0];
 
-function AjouterMission({ show, handleClose }) {
   const [state, setState] = useState({
-    id: uuidv4(),
-    numero: "",
-    date: "",
-    client: "",
-    typeFacture: "",
-    vehicule: "",
-    remorque: "",
-    chauffeur: "",
-    representant: "",
-    nBT: "",
-    dateBT: "",
-    nBonReception: "",
-    dateBonReception: "",
-    produit: "",
-    unite: "",
-    lieuDepart: "",
-    lieuArrive: "",
-    distance: "",
-    quantite: "",
-    ecartPoids: "",
-    etat: "attente",
+    id: mission.id,
+    numero: mission.numero,
+    date: mission.date,
+    client: mission.client,
+    typeFacture: mission.typeFacture,
+    vehicule: mission.vehicule,
+    remorque: mission.remorque,
+    chauffeur: mission.chauffeur,
+    representant: mission.representant,
+    nBT: mission.nBT,
+    dateBT: mission.dateBT,
+    nBonReception: mission.nBonReception,
+    dateBonReception: mission.dateBonReception,
+    produit: mission.produit,
+    unite: mission.unite,
+    lieuDepart: mission.lieuDepart,
+    lieuArrive: mission.lieuArrive,
+    distance: mission.distance,
+    quantite: mission.quantite,
+    ecartPoids: mission.ecartPoids,
+    etat: mission.etat,
   });
 
   const dispatch = useDispatch();
@@ -60,15 +55,12 @@ function AjouterMission({ show, handleClose }) {
   };
 
   const handleSubmit = () => {
-    dispatch(addMission(state));
-    dispatch(
-      addNotification({ id: uuidv4(), date, seen: false, id_mission: state.id })
-    );
-    handleClose();
-    
-    toast.success("Mission ajouté avec succées");
-  };
+    dispatch(modifyMission(state));
 
+    handleClose();
+
+    toast.success("Mission modifié avec succées");
+  };
   return (
     <Modal
       isOpen={show}
@@ -77,7 +69,7 @@ function AjouterMission({ show, handleClose }) {
       fullscreen="sm"
       size="lg"
     >
-      <ModalHeader toggle={handleClose}>Ajouter une mission</ModalHeader>
+      <ModalHeader toggle={handleClose}>Modifier une mission</ModalHeader>
       <ModalBody>
         <Form>
           <Row>
@@ -503,4 +495,4 @@ function AjouterMission({ show, handleClose }) {
   );
 }
 
-export default AjouterMission;
+export default ModifyModal;

@@ -2,6 +2,7 @@ import {
   ADD_MISSION,
   DELETE_MISSION,
   MODIFY_MISSION,
+  MODIFY_MISSION_STATUS,
 } from "../constants/missionsConstants";
 
 import data from "./missionData";
@@ -15,14 +16,22 @@ const missions = (state = INITIAL_STATE, action) => {
 
     case MODIFY_MISSION:
       const index = state.findIndex(
-        (mission) => mission.id === action.payload.userID[0]
+        (mission) => mission.id === action.payload.id
       );
-      state[index].status = action.payload.status;
+
+      state[index] = action.payload;
+      return [...state];
+
+    case MODIFY_MISSION_STATUS:
+      const index_status = state.findIndex(
+        (mission) => mission.id === action.payload.userID
+      );
+      state[index_status].status = action.payload.status;
       return [...state];
 
     case DELETE_MISSION:
       const newMission = state.filter(
-        (mission) => mission.id !== action.payload[0]
+        (mission) => mission.id !== action.payload
       );
 
       return newMission;

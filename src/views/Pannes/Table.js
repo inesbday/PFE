@@ -3,29 +3,17 @@ import { DataGrid } from "@mui/x-data-grid";
 import styles from "./table.module.css";
 import ViewMore from "./ViewMore";
 import { useSelector } from "react-redux";
-import ConfirmModal from "../../components/Modals/ConfirmModal/ConfirmModal";
-import ModifyModal from "../../components/Modals/ModifyModal/ModifyModal";
 
 let rowID;
 
 function Table() {
   const [show, setShow] = useState(false);
-  const [showConfirmModal, setShowConfirmModal] = useState(false);
-  const [showModifyModal, setShowModifyModal] = useState(false);
 
-  let rows = useSelector((state) => state.missions);
+  let rows = useSelector((state) => state.pannes);
   rows = [...rows].reverse();
 
   const toggleShow = () => {
     setShow(!show);
-  };
-
-  const toggleShowConfirmModal = () => {
-    setShowConfirmModal(!showConfirmModal);
-  };
-
-  const toggleShowModifyModal = () => {
-    setShowModifyModal(!showModifyModal);
   };
 
   const columns = [
@@ -37,30 +25,30 @@ function Table() {
         return params.value.toString().substring(0, 2);
       },
     },
-    { field: "client", headerName: "Client", width: 100 },
+    { field: "numero", headerName: "numero", width: 100 },
     {
-      field: "vehicule",
-      headerName: "Véhicule",
+      field: "date",
+      headerName: "date",
       width: 100,
     },
     {
-      field: "chauffeur",
-      headerName: "Chauffeur",
+      field: "client",
+      headerName: "client",
       width: 130,
     },
     {
-      field: "lieuDepart",
-      headerName: "Lieu départ",
+      field: "typeFacture",
+      headerName: "typeFacture",
       width: 130,
     },
     {
-      field: "lieuArrive",
-      headerName: "Lieu arrivé",
+      field: "vehicule",
+      headerName: "vehicule",
       width: 130,
     },
     {
-      field: "produit",
-      headerName: "Produit",
+      field: "remorque",
+      headerName: "remorque",
       width: 100,
     },
     {
@@ -104,11 +92,7 @@ function Table() {
       width: 220,
       renderCell: () => (
         <div className="d-flex justify-content-between align-items-center w-100">
-          <button
-            className="btn btn-secondary"
-            title="Modifier"
-            onClick={toggleShowModifyModal}
-          >
+          <button className="btn btn-secondary" title="Modifier">
             <i className="fa-solid fa-pen"></i>
           </button>
           <button
@@ -122,11 +106,7 @@ function Table() {
           <button className="btn btn-primary" title="Télécharger">
             <i className="fa-solid fa-circle-down"></i>
           </button>
-          <button
-            className="btn btn-danger"
-            title="Supprimer"
-            onClick={toggleShowConfirmModal}
-          >
+          <button className="btn btn-danger" title="Supprimer">
             <i className="fa-solid fa-trash"></i>
           </button>
         </div>
@@ -145,27 +125,8 @@ function Table() {
           rowID = id;
         }}
       />
-
-      {/* Modals */}
-
       {show && (
         <ViewMore show={show} handleClose={toggleShow} rowID={rowID[0]} />
-      )}
-
-      {showConfirmModal && (
-        <ConfirmModal
-          show={showConfirmModal}
-          handleClose={toggleShowConfirmModal}
-          rowID={rowID[0]}
-        />
-      )}
-
-      {showModifyModal && (
-        <ModifyModal
-          show={showModifyModal}
-          handleClose={toggleShowModifyModal}
-          rowID={rowID[0]}
-        />
       )}
     </div>
   );

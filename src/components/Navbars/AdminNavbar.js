@@ -198,10 +198,8 @@ function Header() {
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
-            <Nav.Item>
-              <Nav.Link className="m-0">
-                <Link to="/login">Se deconnecter</Link>
-              </Nav.Link>
+            <Nav.Item className="d-flex justify-content-center align-items-center">
+              <Link to="/login">Se deconnecter</Link>
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>

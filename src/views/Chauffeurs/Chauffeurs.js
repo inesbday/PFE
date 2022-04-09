@@ -11,10 +11,10 @@ function Chauffeurs() {
               <Card.Header>
                 <Card.Title as="h3">Liste des chauffeurs </Card.Title>
               </Card.Header>
-              <Card.Body className="table-full-width table-responsive px-0">
+              <Card.Body className="table-full-width table-responsive ">
           <Table />
-          </Card.Body>
-            </Card>
+              </Card.Body>
+           </Card>
           </Col>
         </Row>
       </Container>

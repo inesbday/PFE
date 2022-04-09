@@ -15,9 +15,9 @@ const amendes = (state = INITIAL_STATE, action) => {
 
     case MODIFY_AMENDE:
       const index = state.findIndex(
-        (amende) => amende.id === action.payload.userID[0]
+        (amende) => amende.id === action.payload.id
       );
-      state[index].status = action.payload.status;
+      state[index] = action.payload.status;
       return [...state];
 
     case DELETE_AMENDE:

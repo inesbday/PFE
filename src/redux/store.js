@@ -8,14 +8,16 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import missions from "./reducers/missionReducer";
 import ui from "./reducers/uiReducer";
 import notifications from "./reducers/notificationsReducer";
-import amendes from './reducers/amendeReducer';
-import users from './reducers/userReducer';
+import amendes from "./reducers/amendeReducer";
+import users from "./reducers/userReducer";
+import pannes from "./reducers/pannesReducer";
 const reducer = combineReducers({
+  pannes,
   missions,
   ui,
   notifications,
   amendes,
-  users
+  users,
 });
 
 const initialState = {};
