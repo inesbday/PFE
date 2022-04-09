@@ -9,8 +9,15 @@ function Sidebar({ color, image, routes }) {
     return location.pathname.indexOf(routeName) > -1 ? "active" : "";
   };
 
+  const { sideBarIsOpen } = useSelector((state) => state.ui);
+
   return (
-    <div className="sidebar" data-image={image} data-color={color}>
+    <div
+      className="sidebar"
+      data-image={image}
+      data-color={color}
+      style={{ display: sideBarIsOpen ? "block" : "" }}
+    >
       <div
         className="sidebar-background"
         style={{
