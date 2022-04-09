@@ -16,9 +16,11 @@ import ForgotPassword from "./views/Auth/ForgotPassword";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import Test from "./views/Test";
+import { ToastContainer } from "react-toastify";
 
 ReactDOM.render(
   <Provider store={store}>
+    <ToastContainer pauseOnHover={false} autoClose={2000} />
     <BrowserRouter>
       <Switch>
         <Route path="/admin" render={(props) => <App {...props} />} />

@@ -15,6 +15,7 @@ const dashboardRoutes = [
     path: "/dashboard",
     name: "Dashboard",
     icon: "nc-icon nc-chart-pie-35",
+    role: "Admin",
     component: Dashboard,
     layout: "/admin",
   },
