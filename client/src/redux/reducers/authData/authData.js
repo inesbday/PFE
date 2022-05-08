@@ -5,6 +5,7 @@ const data = [
     email: "ines@email.com",
     password: "ines123",
     role: "admin",
+    defaultPath: `/admin/dashboard`,
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ const data = [
     email: "mostfa@email.com",
     password: "mostfa123",
     role: "chauffeur",
+    defaultPath: `/chauffeur/MissionChauffeur`,
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ const data = [
     email: "touhemi@email.com",
     password: "touhemi123",
     role: "mecanicien",
+    defaultPath: `/mecanicien/MissionMecanicien`,
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ const data = [
     email: "ali@email.com",
     password: "ali123",
     role: "chef-de-parc",
+    defaultPath: `/chef-de-parc/checklist`,
   },
 ];
 

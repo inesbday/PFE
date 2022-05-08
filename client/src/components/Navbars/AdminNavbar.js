@@ -9,7 +9,10 @@ import { Row, Container, Col } from "reactstrap";
 import { modifyNotification } from "../../redux/actions/notificationsActions";
 
 import { useHistory } from "react-router-dom";
-import { Link } from "react-router-dom";
+
+import { logOut } from "../../redux/actions/authActions";
+
+import styles from "./AdminNavbar.module.css";
 
 function Header() {
   const location = useLocation();
@@ -54,6 +57,10 @@ function Header() {
     dispatch(modifyNotification(id));
 
     history.push("/admin/notifications");
+  };
+
+  const handleLogOut = () => {
+    dispatch(logOut());
   };
 
   return (
@@ -198,8 +205,11 @@ function Header() {
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
-            <Nav.Item className="d-flex justify-content-center align-items-center">
-              <Link to="/login">Se deconnecter</Link>
+            <Nav.Item
+              className="d-flex justify-content-center align-items-center btn btn-light"
+              onClick={handleLogOut}
+            >
+              Se deconnecter
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>

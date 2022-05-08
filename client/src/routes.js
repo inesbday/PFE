@@ -23,7 +23,7 @@ const dashboardRoutes = [
   {
     path: "/Utilisateurs",
     name: "Utilisateurs",
-    icon: "nc-icon nc-single-02 ",
+    icon: "fa-solid fa-user-graduate",
     component: Utilisateurs,
     layout: "/admin",
   },
@@ -95,6 +95,13 @@ const dashboardRoutes = [
     layout: "/admin",
   },
   {
+    path: "/notifications",
+    name: "Notifications",
+    icon: "nc-icon nc-bell-55",
+    component: Notifications,
+    layout: "/mecanicien",
+  },
+  {
     path: "/AmendesAdmin",
     name: "AmendesAdmin",
     icon: "nc-icon nc-bell-55",
@@ -106,7 +113,7 @@ const dashboardRoutes = [
     name: "Checklist",
     icon: "nc-icon nc-check-2",
     component: Checklist,
-    layout: "/admin",
+    layout: "/chef-de-parc",
   },
 ];
 

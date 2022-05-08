@@ -14,9 +14,9 @@ function NotificationsItem({ id, id_mission }) {
   };
   return (
     <Alert variant="filled" severity="info">
-      <Row>
-        <Col>Notifications : vous avez une mission en attente! +  {id}</Col>
-        <Col>
+      <Row className="d-flex">
+        <Col>Notifications : vous avez une mission en attente!</Col>
+        <Col className="bg-danger justify-self-end">
           <Button variant="info" onClick={toggleShow}>
             Voir plus mission
           </Button>

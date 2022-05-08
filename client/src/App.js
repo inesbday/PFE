@@ -16,26 +16,34 @@ function App() {
   const [color, setColor] = useState("black");
   const [hasImage, setHasImage] = useState(true);
 
+  // Select auth state from the store (false or true)
   const { auth } = useSelector((state) => state.auth);
+
+  // Select the current user from the store
   const { user } = useSelector((state) => state.auth);
 
   const location = useLocation();
   const mainPanel = React.useRef(null);
 
   const getRoutes = (routes) => {
+    // if auth state is true then return routes
     if (auth) {
-      return routes
-        .filter(({ layout }) => layout.split("/")[1] === user.role)
-        .map((prop, key) => {
-          return (
-            <Route
-              path={prop.layout + prop.path}
-              render={(props) => <prop.component {...props} />}
-              key={key}
-            />
-          );
-        });
+      return (
+        routes
+          // filter the routes depending on the user's role
+          .filter(({ layout }) => layout.split("/")[1] === user.role)
+          .map((prop, key) => {
+            return (
+              <Route
+                path={prop.layout + prop.path}
+                render={(props) => <prop.component {...props} />}
+                key={key}
+              />
+            );
+          })
+      );
     } else {
+      // if auth state is false, redirect to login page
       return <Redirect to="/login" />;
     }
   };
