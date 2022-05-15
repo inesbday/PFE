@@ -4,6 +4,9 @@ import {
   MODIFY_MISSION,
 } from "../constants/missionsConstants";
 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export const addMission = (payload) => {
   return {
     type: ADD_MISSION,
@@ -18,9 +21,11 @@ export const modifyMission = (payload) => {
   };
 };
 
-export const deleteMission = (payload) => {
-  return {
+export const deleteMission = (payload) => (dispatch) => {
+  dispatch({
     type: DELETE_MISSION,
     payload,
-  };
+  });
+
+  toast.success("Mission supprimé avec succées");
 };

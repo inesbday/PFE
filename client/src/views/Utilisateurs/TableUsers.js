@@ -3,15 +3,22 @@ import React, { useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 
 import styles from "./table.module.css";
-import ViewMore from "./ViewMore";
+import ViewMore from "./modals/ViewMore";
 import { useSelector } from "react-redux";
+import ConfirmModal from "../../components/Modals/ConfirmModal/ConfirmModal";
+import ModifyUserModal from "./modals/ModifyUserModal";
+import { deleteUser } from "../../redux/actions/usersActions";
 
 let rowID;
 
 function Table() {
-  const [show, setShow] = useState(false);
+  const [showViewMore, setShowViewMore] = useState(false);
+  const [showModify, setShowModify] = useState(false);
+  const [showDelete, setShowDelete] = useState(false);
 
-  const toggleShow = () => setShow(!show);
+  const toggleShowViewMore = () => setShowViewMore(!showViewMore);
+  const toggleShowModify = () => setShowModify(!showModify);
+  const toggleShowDelete = () => setShowDelete(!showDelete);
 
   const users = useSelector((state) => state.users);
 
@@ -43,18 +50,27 @@ function Table() {
       width: 220,
       renderCell: () => (
         <div className="d-flex justify-content-between align-items-center w-100">
-          <button className="btn btn-secondary" title="Modifier">
+          <button
+            className="btn btn-secondary"
+            title="Modifier"
+            onClick={toggleShowModify}
+          >
             <i className="fa-solid fa-pen"></i>
           </button>
+
           <button
             className="btn btn-warning"
-            onClick={toggleShow}
             title="Voir plus"
+            onClick={toggleShowViewMore}
           >
             <i className="fa-solid fa-eye"></i>
           </button>
 
-          <button className="btn btn-danger" title="Supprimer">
+          <button
+            className="btn btn-danger"
+            title="Supprimer"
+            onClick={toggleShowDelete}
+          >
             <i className="fa-solid fa-trash"></i>
           </button>
         </div>
@@ -73,8 +89,29 @@ function Table() {
           rowID = id;
         }}
       />
-      {show && (
-        <ViewMore show={show} handleClose={toggleShow} rowID={rowID[0]} />
+      {showViewMore && (
+        <ViewMore
+          show={showViewMore}
+          handleClose={toggleShowViewMore}
+          rowID={rowID[0]}
+        />
+      )}
+
+      {showDelete && (
+        <ConfirmModal
+          show={showDelete}
+          handleClose={toggleShowDelete}
+          rowID={rowID[0]}
+          reduxAction={deleteUser}
+        />
+      )}
+
+      {showModify && (
+        <ModifyUserModal
+          show={showModify}
+          handleClose={toggleShowModify}
+          rowID={rowID[0]}
+        />
       )}
     </div>
   );

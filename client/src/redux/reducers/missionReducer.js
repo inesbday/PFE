@@ -15,6 +15,7 @@ const missions = (state = INITIAL_STATE, action) => {
       return [...state, action.payload];
 
     case MODIFY_MISSION:
+      console.log(action.payload);
       const index = state.findIndex(
         (mission) => mission.id === action.payload.id
       );

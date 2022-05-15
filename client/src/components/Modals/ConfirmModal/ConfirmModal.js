@@ -2,19 +2,14 @@ import React from "react";
 import { useDispatch } from "react-redux";
 
 import { Modal, ModalBody, ModalHeader, ModalFooter, Button } from "reactstrap";
-import { deleteMission } from "../../../redux/actions/missionActions";
 
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
-function ConfirmModal({ show, handleClose, rowID }) {
+function ConfirmModal({ show, handleClose, rowID, reduxAction }) {
   const dispatch = useDispatch();
 
   const handleDeleteMission = () => {
-    dispatch(deleteMission(rowID));
+    dispatch(reduxAction(rowID));
 
     handleClose();
-    toast.success("Mission supprimé avec succées");
   };
 
   return (

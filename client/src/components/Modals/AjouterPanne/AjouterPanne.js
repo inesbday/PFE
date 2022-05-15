@@ -23,6 +23,8 @@ import {
 import { addNotification } from "../../../redux/actions/notificationsActions";
 import { addPanne } from "../../../redux/actions/panneAction";
 
+import getCurrentPosition from "./GetCurrentPosition";
+
 const today = new Date();
 
 const date =
@@ -69,7 +71,9 @@ function AjouterPanne({ show, handleClose }) {
       fullscreen="sm"
       size="lg"
     >
-      <ModalHeader toggle={handleClose}><h4>Declarer une nouvelle panne</h4></ModalHeader>
+      <ModalHeader toggle={handleClose}>
+        <h4>Declarer une nouvelle panne</h4>
+      </ModalHeader>
       <ModalBody>
         <Form>
           <Row>
@@ -163,8 +167,6 @@ function AjouterPanne({ show, handleClose }) {
                 </Row>
               </FormGroup>
 
-             
-
               <FormGroup>
                 <Row>
                   <Col>
@@ -208,12 +210,26 @@ function AjouterPanne({ show, handleClose }) {
                       <option>R 3</option>
                     </Input>
                   </Col>
-                 
-                  
                 </Row>
               </FormGroup>
 
-             
+              <FormGroup>
+                <Row>
+                  <Col>
+                    <Label for="lieu">
+                      Obtenir la position actuelle
+                      <strong className="text-danger">*</strong>
+                    </Label>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <Button className="btn-info" onClick={getCurrentPosition}>
+                      Obtenir
+                    </Button>
+                  </Col>
+                </Row>
+              </FormGroup>
             </Col>
           </Row>
         </Form>

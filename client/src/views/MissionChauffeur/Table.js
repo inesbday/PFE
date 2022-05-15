@@ -1,54 +1,63 @@
 import React, { useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import styles from "./table.module.css";
-import ViewMore from "./ViewMore";
-const rows = [
-  {
-    id: 1,
-    client: "Simsoft",
-    vehicule: "Peugot",
-    chauffeur: "Ines Bday",
-    lieuDepart: "Sousse",
-    lieuArrive: "Tunis",
-    produit: "Blé",
-    etat: "attente",
-  },
-  {
-    id: 2,
-    client: "Simsoft",
-    vehicule: "Peugot",
-    chauffeur: "Ines Bday",
-    lieuDepart: "Sousse",
-    lieuArrive: "Tunis",
-    produit: "Blé",
-    etat: "en_cours",
-  },
-  {
-    id: 3,
-    client: "Simsoft",
-    vehicule: "Peugot",
-    chauffeur: "Ines Bday",
-    lieuDepart: "Sousse",
-    lieuArrive: "Tunis",
-    produit: "Blé",
-    etat: "annulée",
-  },
-  {
-    id: 4,
-    client: "Simsoft",
-    vehicule: "Peugot",
-    chauffeur: "Ines Bday",
-    lieuDepart: "Sousse",
-    lieuArrive: "Tunis",
-    produit: "Blé",
-    etat: "en_cours",
-  },
-];
+import ViewMore from "../Missions/ViewMore";
+import { useSelector } from "react-redux";
+
+import { file } from "../../assets/pdf/sample.pdf";
+
+// const rows = [
+//   {
+//     id: 1,
+//     client: "Simsoft",
+//     vehicule: "Peugot",
+//     chauffeur: "Ines Bday",
+//     lieuDepart: "Sousse",
+//     lieuArrive: "Tunis",
+//     produit: "Blé",
+//     etat: "attente",
+//   },
+//   {
+//     id: 2,
+//     client: "Simsoft",
+//     vehicule: "Peugot",
+//     chauffeur: "Ines Bday",
+//     lieuDepart: "Sousse",
+//     lieuArrive: "Tunis",
+//     produit: "Blé",
+//     etat: "en_cours",
+//   },
+//   {
+//     id: 3,
+//     client: "Simsoft",
+//     vehicule: "Peugot",
+//     chauffeur: "Ines Bday",
+//     lieuDepart: "Sousse",
+//     lieuArrive: "Tunis",
+//     produit: "Blé",
+//     etat: "annulée",
+//   },
+//   {
+//     id: 4,
+//     client: "Simsoft",
+//     vehicule: "Peugot",
+//     chauffeur: "Ines Bday",
+//     lieuDepart: "Sousse",
+//     lieuArrive: "Tunis",
+//     produit: "Blé",
+//     etat: "en_cours",
+//   },
+// ];
+
+let rowID;
 
 function Table() {
   const [show, setShow] = useState(false);
 
   const toggleShow = () => setShow(!show);
+
+  let rows = useSelector((state) => state.missions);
+  rows = [...rows].reverse();
 
   const columns = [
     { field: "id", headerName: "ID", width: 60 },
@@ -108,12 +117,9 @@ function Table() {
     {
       field: "Actions",
       headerName: "Actions",
-      width: 220,
+      width: 150,
       renderCell: () => (
         <div className="d-flex justify-content-between align-items-center w-100">
-          <button className="btn btn-secondary" title="Modifier">
-            <i className="fa-solid fa-pen"></i>
-          </button>
           <button
             className="btn btn-warning"
             onClick={toggleShow}
@@ -122,9 +128,11 @@ function Table() {
             <i className="fa-solid fa-eye"></i>
           </button>
 
-          <button className="btn btn-primary" title="Télécharger">
-            <i className="fa-solid fa-circle-down"></i>
-          </button>
+          <a href="./sample.pdf" download>
+            <button className="btn btn-primary" title="Télécharger">
+              <i className="fa-solid fa-circle-down"></i>
+            </button>
+          </a>
           {/* <button className="btn btn-danger" title="Supprimer">
             <i className="fa-solid fa-trash"></i>
           </button> */}
@@ -140,8 +148,13 @@ function Table() {
         columns={columns}
         pageSize={5}
         rowsPerPageOptions={[5]}
+        onSelectionModelChange={(id) => {
+          rowID = id;
+        }}
       />
-      {show && <ViewMore show={show} handleClose={toggleShow} />}
+      {show && (
+        <ViewMore show={show} handleClose={toggleShow} rowID={rowID[0]} />
+      )}
     </div>
   );
 }

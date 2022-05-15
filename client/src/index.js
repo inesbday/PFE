@@ -52,6 +52,7 @@ function Index() {
 
 ReactDOM.render(
   <Provider store={store}>
+    <ToastContainer pauseOnHover={false} autoClose={2000} />
     <Index />
   </Provider>,
   document.getElementById("root")

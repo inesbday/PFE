@@ -1,94 +1,54 @@
-import React from "react";
-import { CustomInput, Button, Form, FormGroup, Label } from "reactstrap";
+import React, { useState } from "react";
+import {
+  CustomInput,
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Row,
+  Col,
+} from "reactstrap";
+
+import OptionModal from "./OptionModal";
+
 function Checklist() {
+  const [optionOne, setOptionOne] = useState(false);
+  const [optionTwo, setOptionTwo] = useState(false);
+  const [optionThree, setOptionThree] = useState(false);
+
+  const toggleOptionOne = () => setOptionOne((prevState) => !prevState);
+  const toggleOptionTwo = () => setOptionTwo((prevState) => !prevState);
+  const toggleOptionThree = () => setOptionThree((prevState) => !prevState);
+
   return (
-    <form>
-      <FormGroup>
-        <Label for="exampleCheckbox">Check List</Label>
-        <div>
-          <CustomInput
-            type="checkbox"
-            id="exampleCustomCheckbox"
-            label="Option 1"
-          />
-          <CustomInput
-            type="checkbox"
-            id="exampleCustomCheckbox2"
-            label="Option 2"
-          />
-          <CustomInput
-            type="checkbox"
-            id="exampleCustomCheckbox3"
-            label="Option1 3 "
-          />
-        </div>
-      </FormGroup>
+    <Row>
+      <Col className="d-flex justify-content-center alogn-items-center">
+        <Button className="btn-info" onClick={toggleOptionOne}>
+          Option 1
+        </Button>
+      </Col>
+      <Col className="d-flex justify-content-center alogn-items-center">
+        <Button className="btn-warning" onClick={toggleOptionTwo}>
+          Option 2
+        </Button>
+      </Col>
+      <Col className="d-flex justify-content-center alogn-items-center">
+        <Button className="btn-success" onClick={toggleOptionThree}>
+          Option 3
+        </Button>
+      </Col>
+      {/* Modals */}
 
-      <FormGroup>
-        <Label for="exampleCheckbox">Check List</Label>
-        <div>
-          <CustomInput
-            type="checkbox"
-            id="exampleCustomCheckbox4"
-            label="Option 1"
-          />
-          <CustomInput
-            type="checkbox"
-            id="exampleCustomCheckbox5"
-            label="Option 2"
-          />
-          <CustomInput
-            type="checkbox"
-            id="exampleCustomCheckbox6"
-            label="Option1 3 "
-          />
-        </div>
-      </FormGroup>
-
-      <FormGroup>
-        <Label for="exampleCheckbox">Check List</Label>
-        <div>
-          <CustomInput
-            type="checkbox"
-            id="exampleCustomCheckbox7"
-            label="Option 1"
-          />
-          <CustomInput
-            type="checkbox"
-            id="exampleCustomCheckbox8"
-            label="Option 2"
-          />
-          <CustomInput
-            type="checkbox"
-            id="exampleCustomCheckbox9"
-            label="Option1 3 "
-          />
-        </div>
-      </FormGroup>
-
-      <FormGroup>
-        <Label for="exampleCheckbox">Check List</Label>
-        <div>
-          <CustomInput
-            type="checkbox"
-            id="exampleCustomCheckbox10"
-            label="Option 1"
-          />
-          <CustomInput
-            type="checkbox"
-            id="exampleCustomCheckbox11"
-            label="Option 2"
-          />
-          <CustomInput
-            type="checkbox"
-            id="exampleCustomCheckbox12"
-            label="Option1 3 "
-          />
-        </div>
-      </FormGroup>
-
-      <Button>Submit</Button>
-    </form>
+      {optionOne && (
+        <OptionModal show={optionOne} handleClose={toggleOptionOne} />
+      )}
+      {optionTwo && (
+        <OptionModal show={optionTwo} handleClose={toggleOptionTwo} />
+      )}
+      {optionThree && (
+        <OptionModal show={optionThree} handleClose={toggleOptionThree} />
+      )}
+    </Row>
   );
 }
 

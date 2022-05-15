@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { v4 as uuidv4 } from "uuid";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   Modal,
@@ -18,23 +15,24 @@ import {
   Col,
 } from "reactstrap";
 
-//import { addNotification } from "../../../redux/actions/notificationsActions";
-import { addUser } from "../../../redux/actions/usersActions";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { modifyUser } from "../../../redux/actions/usersActions";
 
-const today = new Date();
+function ModifyUserModal({ show, handleClose, rowID }) {
+  const user = useSelector((state) => state.users).filter(
+    ({ id }) => id === rowID
+  )[0];
 
-const date =
-  today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
-
-function AjouterUser({ show, handleClose }) {
   const [state, setState] = useState({
-    id: uuidv4(),
-    nom: "",
-    prenom: "",
-    email: "",
-    numtel: "",
-    role: "",
-    datecreation: "",
+    id: user.id,
+    nom: user.nom,
+    prenom: user.prenom,
+    email: user.email,
+    numtel: user.numtel,
+    role: user.role,
+    datecreation: user.datecreation,
+    motdepasse: user.motdepasse,
   });
 
   const dispatch = useDispatch();
@@ -44,9 +42,11 @@ function AjouterUser({ show, handleClose }) {
   };
 
   const handleSubmit = () => {
-    dispatch(addUser(state));
+    dispatch(modifyUser(state));
 
     handleClose();
+
+    toast.success("User modifié avec succées");
   };
 
   return (
@@ -57,10 +57,7 @@ function AjouterUser({ show, handleClose }) {
       fullscreen="sm"
       size="lg"
     >
-      <ModalHeader toggle={handleClose}>
-        {" "}
-        <h4>Ajouter un utilisateur </h4>
-      </ModalHeader>
+      <ModalHeader toggle={handleClose}>Ajouter un utilisateur</ModalHeader>
       <ModalBody>
         <Form>
           <Row>
@@ -122,7 +119,7 @@ function AjouterUser({ show, handleClose }) {
                     <Input
                       id="numtel"
                       name="numtel"
-                      type="number"
+                      type="text"
                       onChange={(event) => changeCreds(event)}
                       value={state.numtel}
                       required
@@ -202,11 +199,11 @@ function AjouterUser({ show, handleClose }) {
         </Button>
 
         <Button color="success" onClick={handleSubmit}>
-          Ajouter
+          Modifier
         </Button>
       </ModalFooter>
     </Modal>
   );
 }
 
-export default AjouterUser;
+export default ModifyUserModal;

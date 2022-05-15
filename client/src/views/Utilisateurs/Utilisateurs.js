@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Button, Col } from "react-bootstrap";
-import Table from "./TableUsers";
+import TableUser from "./TableUsers";
 import AjouterUser from "../../components/Modals/AjouterUser/AjouterUser";
 function Users() {
   const [openAjouterUser, setOpenAjouterUser] = useState(false);
@@ -17,7 +17,7 @@ function Users() {
       </Button>
 
       <Row className="mt-5">
-        <Table />
+        <TableUser />
       </Row>
 
       {openAjouterUser && (

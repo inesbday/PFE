@@ -1,34 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Modal, Button, Row, Col, FormGroup } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Input, Label } from "reactstrap";
+import { modifyMission } from "../../redux/actions/missionActions";
 
 function ViewMore({ show, handleClose, rowID }) {
-  const {
-    numero,
-    date,
-    client,
-    typeFacture,
-    vehicule,
-    remorque,
-    chauffeur,
-    representant,
-    nBT,
-    dateBT,
-    nBonReception,
-    dateBonReception,
-    produit,
-    unite,
-    lieuDepart,
-    lieuArrive,
-    distance,
-    quantite,
-    ecartPoids,
-    etat,
-  } = useSelector((state) => state.missions).filter(
+  const mission = useSelector((state) => state.missions).filter(
     ({ id }) => id === rowID
   )[0];
+  const dispatch = useDispatch();
+
+  const [state, setState] = useState({
+    id: mission.id,
+    numero: mission.numero,
+    date: mission.date,
+    client: mission.client,
+    typeFacture: mission.typeFacture,
+    vehicule: mission.vehicule,
+    remorque: mission.remorque,
+    chauffeur: mission.chauffeur,
+    representant: mission.representant,
+    nBT: mission.nBT,
+    dateBT: mission.dateBT,
+    nBonReception: mission.nBonReception,
+    dateBonReception: mission.dateBonReception,
+    produit: mission.produit,
+    unite: mission.unite,
+    lieuDepart: mission.lieuDepart,
+    lieuArrive: mission.lieuArrive,
+    distance: mission.distance,
+    quantite: mission.quantite,
+    ecartPoids: mission.ecartPoids,
+    etat: mission.etat,
+  });
+
+  const changeCreds = (event) => {
+    setState({ ...state, [event.target.name]: event.target.value });
+  };
+
+  const handleChange = () => {
+    dispatch(modifyMission(state));
+    handleClose();
+  };
 
   return (
     <Modal show={show} onHide={handleClose} size="lg">
@@ -44,99 +58,115 @@ function ViewMore({ show, handleClose, rowID }) {
           <Col>
             <Row>
               <h5 className="text-info col-6">Date:</h5>
-              <p className="col-6 text-left">{date}</p>
+              <p className="col-6 text-left">{mission.date}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">Clients:</h5>
-              <p className="col-6 text-left">{client}</p>
+              <p className="col-6 text-left">{mission.client}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">Type de facturation:</h5>
-              <p className="col-6 text-left">{typeFacture}</p>
+              <p className="col-6 text-left">{mission.typeFacture}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">Véhicule:</h5>
-              <p className="col-6 text-left">{vehicule}</p>
+              <p className="col-6 text-left">{mission.vehicule}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">Remorque:</h5>
-              <p className="col-6 text-left">{remorque}</p>
+              <p className="col-6 text-left">{mission.remorque}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">Chauffeur:</h5>
-              <p className="col-6">{chauffeur}</p>
+              <p className="col-6">{mission.chauffeur}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">N° BT:</h5>
-              <p className="col-6">{nBT}</p>
+              <p className="col-6">{mission.nBT}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">Date BT:</h5>
-              <p className="col-6">{dateBT}</p>
+              <p className="col-6">{mission.dateBT}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">N° bon réception:</h5>
-              <p className="col-6">{nBonReception}</p>
+              <p className="col-6">{mission.nBonReception}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">Date bon réception:</h5>
-              <p className="col-6">{dateBonReception}</p>
+              <p className="col-6">{mission.dateBonReception}</p>
             </Row>
             <Row>
               <h5 className="text-info col-6">Produit :</h5>
-              <p className="col-6">{produit}</p>
+              <p className="col-6">{mission.produit}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">Unité</h5>
-              <p className="col-6">{unite}</p>
+              <p className="col-6">{mission.unite}</p>
             </Row>
           </Col>
 
           <Col>
             <Row>
               <h5 className="text-info col-6">Lieu depart:</h5>
-              <p className="col-6">{lieuDepart}</p>
+              <p className="col-6">{mission.lieuDepart}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">lieu arrivée</h5>
-              <p className="col-6">{lieuArrive}</p>
+              <p className="col-6">{mission.lieuArrive}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">Distance</h5>
-              <p className="col-6">{distance}</p>
+              <p className="col-6">{mission.distance}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">Quantité</h5>
-              <p className="col-6">{quantite}</p>
+              <p className="col-6">{mission.quantite}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">Ecart poids</h5>
-              <p className="col-6">{ecartPoids}</p>
+              <p className="col-6">{mission.ecartPoids}</p>
             </Row>
             <Row>
               <FormGroup>
                 <Label>Etat</Label>
-                <Input type="select">
-                  <option selected={etat === "attente"}>En attente</option>
-                  <option selected={etat === "en_cours"}>En cours</option>
-                  <option selected={etat === "annulée"}>Annulée</option>
-                  <option selected={etat === "effectuée"}>Effectuée</option>
+                <Input type="select" name="etat" onChange={changeCreds}>
+                  <option selected={mission.etat === "attente"} value="attente">
+                    En attente
+                  </option>
+                  <option
+                    selected={mission.etat === "en_cours"}
+                    value="en_cours"
+                  >
+                    En cours
+                  </option>
+                  <option selected={mission.etat === "annulée"} value="annulée">
+                    Annulée
+                  </option>
+                  <option
+                    selected={mission.etat === "effectuée"}
+                    value="effectuée"
+                  >
+                    Effectuée
+                  </option>
                 </Input>
-                <Button className="mt-2">Met jour l'état</Button>
+                <Button className="mt-2" onClick={handleChange}>
+                  Met à jour l'état
+                </Button>
               </FormGroup>
             </Row>
           </Col>

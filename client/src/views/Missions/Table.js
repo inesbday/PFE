@@ -5,6 +5,7 @@ import ViewMore from "./ViewMore";
 import { useSelector } from "react-redux";
 import ConfirmModal from "../../components/Modals/ConfirmModal/ConfirmModal";
 import ModifyModal from "../../components/Modals/ModifyModal/ModifyModal";
+import { deleteMission } from "../../redux/actions/missionActions";
 
 let rowID;
 
@@ -157,6 +158,7 @@ function Table() {
           show={showConfirmModal}
           handleClose={toggleShowConfirmModal}
           rowID={rowID[0]}
+          reduxAction={deleteMission}
         />
       )}
 
