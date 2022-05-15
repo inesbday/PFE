@@ -73,22 +73,21 @@ function Table() {
   const toggleShow = () => setShow(!show);
 
   const columns = [
-    { field: "id", headerName: "ID", width: 70, flex: 1 },
-    { field: "nom", headerName: "Nom", width: 130, flex: 1 },
-    { field: "prenom", headerName: "Prenom", width: 130, flex: 1 },
+    { field: "id", headerName: "ID", width: 70},
+    { field: "nom", headerName: "Nom", width: 100},
+    { field: "prenom", headerName: "Prenom", width: 130},
     {
       field: "numtel",
-      headerName: "numtel",
+      headerName: "N de telephone",
       type: "number",
-      width: 90,
-      flex: 1,
+      width: 110,
     },
 
     {
       field: "viewMore",
       headerName: "Details",
-      flex: 1,
-      width: 160,
+    
+      width: 80,
       renderCell: () => (
         <button
           className="btn btn-warning"

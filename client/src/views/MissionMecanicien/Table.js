@@ -2,55 +2,56 @@ import React, { useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import styles from "./table.module.css";
 import ViewMore from "./ViewMore";
-import { useSelector } from "react-redux";
+const rows = [
+  {
+    id: 1,
+    vehicule: "Peugot",
+    Mecanicien: "Sousse",
+    TypePanne: "Tunis",
+    etat: "attente",
+  },
+  {
+    id: 2,
+    vehicule: "Peugot",
+    Mecanicien: "Sousse",
+    TypePanne: "Tunis",
+    etat: "effectuée",
+  },
+  {
+    id: 3,
+    vehicule: "Peugot",
+    Mecanicien: "Sousse",
+    TypePanne: "Tunis",
 
-let rowID;
+    etat: "annulée",
+  },
+];
 
 function Table() {
   const [show, setShow] = useState(false);
 
-  let rows = useSelector((state) => state.pannes);
-  rows = [...rows].reverse();
-
-  const toggleShow = () => {
-    setShow(!show);
-  };
+  const toggleShow = () => setShow(!show);
 
   const columns = [
+    { field: "id", headerName: "ID", width: 60 },
+
     {
-      field: "id",
-      headerName: "ID",
-      width: 60,
-      valueFormatter: (params) => {
-        return params.value.toString().substring(0, 2);
-      },
-    },
-    { field: "numero", headerName: "numero", width: 100 },
-    {
-      field: "date",
-      headerName: "Date",
+      field: "vehicule",
+      headerName: "Véhicule",
       width: 100,
     },
+
     {
-      field: "cause",
-      headerName: "Cause",
+      field: "Mecanicien",
+      headerName: "Mecanicien",
       width: 130,
     },
     {
-      field: "piecejointe",
-      headerName: "Piece jointe",
+      field: "TypePanne",
+      headerName: "Type de panne",
       width: 130,
     },
-    {
-      field: "chauffeur",
-      headerName: "Chauffeur",
-      width: 130,
-    },
-    {
-      field: "véhicule",
-      headerName: "véhicule",
-      width: 100,
-    },
+
     {
       field: "etat",
       headerName: "Etat",
@@ -106,9 +107,9 @@ function Table() {
           <button className="btn btn-primary" title="Télécharger">
             <i className="fa-solid fa-circle-down"></i>
           </button>
-          <button className="btn btn-danger" title="Supprimer">
+          {/* <button className="btn btn-danger" title="Supprimer">
             <i className="fa-solid fa-trash"></i>
-          </button>
+          </button> */}
         </div>
       ),
     },
@@ -121,13 +122,8 @@ function Table() {
         columns={columns}
         pageSize={5}
         rowsPerPageOptions={[5]}
-        onSelectionModelChange={(id) => {
-          rowID = id;
-        }}
       />
-      {show && (
-        <ViewMore show={show} handleClose={toggleShow} rowID={rowID[0]} />
-      )}
+      {show && <ViewMore show={show} handleClose={toggleShow} />}
     </div>
   );
 }

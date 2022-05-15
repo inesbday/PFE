@@ -58,108 +58,144 @@ function AjouterUser({ show, handleClose }) {
       fullscreen="sm"
       size="lg"
     >
-      <ModalHeader toggle={handleClose}>Ajouter un utilisateur </ModalHeader>
+      <ModalHeader toggle={handleClose}> <h4>Ajouter un utilisateur </h4></ModalHeader>
       <ModalBody>
-        <Form>
+      <Form>
           <Row>
             {/* Left col */}
-            <FormGroup>
-              <Row>
-                <Col>
-                  <Label for="nom">
-                    Nom <strong className="text-danger">*</strong>
-                  </Label>
-                  <Input
-                    id="nom"
-                    name="nom"
-                    type="text"
-                    required
-                    value={state.nom}
-                    onChange={(event) => changeCreds(event)}
-                  />
-                </Col>
+            <Col>
+              <FormGroup>
+                <Row>
+                  <Col>
+                    <Label for="numero">
+                      Nom d'utilisateur <strong className="text-danger">*</strong>
+                    </Label>
+                    <Input
+                      id="nom"
+                      name="nom"
+                      type="text"
+                      required
+                      value={state.nom}
+                      onChange={(event) => changeCreds(event)}
+                    />
+                  </Col>
 
-                <Col>
-                  <Label for="prenom">
-                    Prenom <strong className="text-danger">*</strong>
-                  </Label>
-                  <Input
-                    id="prenom"
-                    name="prenom"
-                    type="text"
-                    required
-                    value={state.prenom}
-                    onChange={(event) => changeCreds(event)}
-                  />
-                </Col>
+                  <Col>
+                    <Label for="prenom">
+                    prenom d'utilisateur <strong className="text-danger">*</strong>
+                    </Label>
+                    <Input
+                      id="prenom"
+                      name="prenom"
+                      type="text"
+                      onChange={(event) => changeCreds(event)}
+                      value={state.prenom}
+                      required
+                    />
+                  </Col>
+                </Row>
+              </FormGroup>
+              <FormGroup>
+                <Row>
+                  <Col>
+                    <Label for="email">
+                      Email <strong className="text-danger">*</strong>
+                    </Label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      value={state.email}
+                      onChange={(event) => changeCreds(event)}
+                    />
+                  </Col>
 
-                <Label for="email">
-                  Adresse Email <strong className="text-danger">*</strong>
-                </Label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="text"
-                  required
-                  value={state.email}
-                  onChange={(event) => changeCreds(event)}
-                />
+                  <Col>
+                    <Label for="numtel">
+                      N de telephone <strong className="text-danger">*</strong>
+                    </Label>
+                    <Input
+                      id="numtel"
+                      name="numtel"
+                      type="number"
+                      onChange={(event) => changeCreds(event)}
+                      value={state.numtel}
+                      required
+                    />
+                  </Col>
+                </Row>
+              </FormGroup>
 
-                <Col>
-                  <Label for="numtel">
-                    N Telephone <strong className="text-danger">*</strong>
-                  </Label>
-                  <Input
-                    id="numtel"
-                    name="numtel"
-                    type="numtel"
-                    onChange={(event) => changeCreds(event)}
-                    value={state.numtel}
-                    required
-                  />
-                </Col>
-              </Row>
-            </FormGroup>
+              <FormGroup>
+                <Row>
+                  <Col>
+                    <Label for="role">
+                      Role <strong className="text-danger">*</strong>
+                    </Label>
 
-            <FormGroup>
-              <Row>
-                <Col>
-                  <Label for="typeFacture">
-                    role <strong className="text-danger">*</strong>
-                  </Label>
-                  <Input
-                    id="role"
-                    name="role"
-                    type="select"
-                    value={state.typeFacture}
-                    required
-                    onChange={(event) => changeCreds(event)}
-                  >
-                    <option>Fait votre choix...</option>
-                    <option>Chauffeur</option>
-                    <option>Mecanicien</option>
-                    <option>Chef de parc</option>
-                  </Input>
-                </Col>
+                    <Input
+                      id="role"
+                      name="role"
+                      type="select"
+                      value={state.role}
+                      required
+                      onChange={(event) => changeCreds(event)}
+                    >
+                      <option>Fait votre choix...</option>
+                      <option>Chauffeur</option>
+                      <option>Mecanicien</option>
+                      <option>Chef de parc</option>
+                      <option>Autres..</option>
+                    </Input>
+                  </Col>
+                </Row>
+              </FormGroup>
 
-                <Col>
-                  <Label for="datecreation">
-                    datecreation <strong className="text-danger">*</strong>
-                  </Label>
-                  <Input
-                    id="datecreation"
-                    name="datecreation"
-                    type="text"
-                    placeholder="datecreation"
-                    value={state.datecreation}
-                    required
-                    onChange={(event) => changeCreds(event)}
-                  />
-                </Col>
-              </Row>
-            </FormGroup>
+             
 
-            {/* Right col */}
+              <FormGroup>
+                <Row>
+                  <Col>
+                    <Label for="motdepasse">
+                    mot de passe <strong className="text-danger">*</strong>
+                    </Label>
+                    <Input
+                      id="motdepasse"
+                      name="motdepasse"
+                      type="password"
+                      value={state.motdepasse}
+                      required
+                      onChange={(event) => changeCreds(event)}
+                    >
+                    </Input>
+                  </Col>
+                </Row>
+              </FormGroup>
+
+              <FormGroup>
+                <Row>
+                  <Col>
+                    <Label for="photo">
+                      Photo <strong className="text-danger">*</strong>
+                    </Label>
+                    <Input
+                      id="photo"
+                      name="photo"
+                      type="file"
+                      value={state.lieu}
+                      required
+                      onChange={(event) => changeCreds(event)}
+                    >
+                    </Input>
+                  </Col>
+                 
+                  
+                </Row>
+              </FormGroup>
+
+             
+            </Col>
           </Row>
         </Form>
       </ModalBody>

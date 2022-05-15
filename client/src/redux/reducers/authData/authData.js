@@ -29,7 +29,7 @@ const data = [
     email: "ali@email.com",
     password: "ali123",
     role: "chef-de-parc",
-    defaultPath: `/chef-de-parc/checklist`,
+    defaultPath: `/chef-de-parc/dashboard`,
   },
 ];
 

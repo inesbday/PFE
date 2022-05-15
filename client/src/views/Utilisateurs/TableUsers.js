@@ -40,15 +40,24 @@ function Table() {
     {
       field: "viewMore",
       headerName: "Details",
-      width: 70,
+      width: 220,
       renderCell: () => (
-        <button
-          className="btn btn-warning"
-          onClick={toggleShow}
-          title="Voir plus"
-        >
-          <i className="fa-solid fa-eye"></i>
-        </button>
+        <div className="d-flex justify-content-between align-items-center w-100">
+          <button className="btn btn-secondary" title="Modifier">
+            <i className="fa-solid fa-pen"></i>
+          </button>
+          <button
+            className="btn btn-warning"
+            onClick={toggleShow}
+            title="Voir plus"
+          >
+            <i className="fa-solid fa-eye"></i>
+          </button>
+
+          <button className="btn btn-danger" title="Supprimer">
+            <i className="fa-solid fa-trash"></i>
+          </button>
+        </div>
       ),
     },
   ];

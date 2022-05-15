@@ -55,10 +55,7 @@ function ViewMoreCars({ show, handleClose }) {
               <p className="col-6">22/03/2022</p>
             </Row>
 
-            <Row>
-              <h5 className="text-info col-6">Date bon réception:</h5>
-              <p className="col-6">22/03/2022</p>
-            </Row>
+            
 
             <Row>
               <h5 className="text-info col-6">type</h5>

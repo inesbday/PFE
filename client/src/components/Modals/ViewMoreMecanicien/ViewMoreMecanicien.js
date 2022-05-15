@@ -57,7 +57,8 @@ function ViewMoreMecanicien({ show, handleClose }) {
           <Col>
             <img
               src="https://thumbs.dreamstime.com/z/bande-dessin%C3%A9e-un-m%C3%A9canicien-53892493.jpg"
-              width={200}
+              width={100}
+              
             />
           </Col>
         </Row>

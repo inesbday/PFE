@@ -33,11 +33,11 @@ function AjouterPanne({ show, handleClose }) {
     id: uuidv4(),
     numero: "",
     date: "",
-    client: "",
-    typeFacture: "",
+    cause: "",
+    piecejointe: "",
+    chauffeur: "",
     vehicule: "",
-    remorque: "",
-
+    lieu: "",
     etat: "attente",
   });
 
@@ -58,7 +58,7 @@ function AjouterPanne({ show, handleClose }) {
       })
     );
     handleClose();
-    toast.success("Mission ajouté avec succées");
+    toast.success("Panne ajouté avec succées");
   };
 
   return (
@@ -69,7 +69,7 @@ function AjouterPanne({ show, handleClose }) {
       fullscreen="sm"
       size="lg"
     >
-      <ModalHeader toggle={handleClose}>Ajouter une mission mec</ModalHeader>
+      <ModalHeader toggle={handleClose}><h4>Declarer une nouvelle panne</h4></ModalHeader>
       <ModalBody>
         <Form>
           <Row>
@@ -106,19 +106,50 @@ function AjouterPanne({ show, handleClose }) {
                   </Col>
                 </Row>
               </FormGroup>
+              <FormGroup>
+                <Row>
+                  <Col>
+                    <Label for="cause">
+                      Cause <strong className="text-danger">*</strong>
+                    </Label>
+                    <Input
+                      id="cause"
+                      name="cause"
+                      type="text"
+                      required
+                      value={state.cause}
+                      onChange={(event) => changeCreds(event)}
+                    />
+                  </Col>
+
+                  <Col>
+                    <Label for="piecejointe">
+                      Piece jointe <strong className="text-danger">*</strong>
+                    </Label>
+                    <Input
+                      id="piecejointe"
+                      name="piecejointe"
+                      type="file"
+                      onChange={(event) => changeCreds(event)}
+                      value={state.piecejointe}
+                      required
+                    />
+                  </Col>
+                </Row>
+              </FormGroup>
 
               <FormGroup>
                 <Row>
                   <Col>
-                    <Label for="client">
-                      Client <strong className="text-danger">*</strong>
+                    <Label for="chauffeur">
+                      Chauffeur <strong className="text-danger">*</strong>
                     </Label>
 
                     <Input
-                      id="client"
-                      name="client"
+                      id="chauffeur"
+                      name="chauffeur"
                       type="select"
-                      value={state.client}
+                      value={state.chauffeur}
                       required
                       onChange={(event) => changeCreds(event)}
                     >
@@ -132,29 +163,7 @@ function AjouterPanne({ show, handleClose }) {
                 </Row>
               </FormGroup>
 
-              <FormGroup>
-                <Row>
-                  <Col>
-                    <Label for="typeFacture">
-                      Type de facturation{" "}
-                      <strong className="text-danger">*</strong>
-                    </Label>
-                    <Input
-                      id="typeFacture"
-                      name="typeFacture"
-                      type="select"
-                      value={state.typeFacture}
-                      required
-                      onChange={(event) => changeCreds(event)}
-                    >
-                      <option>Fait votre choix...</option>
-                      <option>Type 1</option>
-                      <option>Type 2</option>
-                      <option>Type 3</option>
-                    </Input>
-                  </Col>
-                </Row>
-              </FormGroup>
+             
 
               <FormGroup>
                 <Row>
@@ -182,14 +191,14 @@ function AjouterPanne({ show, handleClose }) {
               <FormGroup>
                 <Row>
                   <Col>
-                    <Label for="remorque">
-                      Remorque <strong className="text-danger">*</strong>
+                    <Label for="lieu">
+                      Lieu <strong className="text-danger">*</strong>
                     </Label>
                     <Input
-                      id="remorque"
-                      name="remorque"
+                      id="lieu"
+                      name="lieu"
                       type="select"
-                      value={state.remorque}
+                      value={state.lieu}
                       required
                       onChange={(event) => changeCreds(event)}
                     >
@@ -199,31 +208,12 @@ function AjouterPanne({ show, handleClose }) {
                       <option>R 3</option>
                     </Input>
                   </Col>
+                 
+                  
                 </Row>
               </FormGroup>
 
-              <FormGroup>
-                <Row>
-                  <Col>
-                    <Label for="chauffeur">
-                      Chauffeur <strong className="text-danger">*</strong>
-                    </Label>
-                    <Input
-                      id="chauffeur"
-                      name="chauffeur"
-                      type="select"
-                      required
-                      value={state.chauffeur}
-                      onChange={(event) => changeCreds(event)}
-                    >
-                      <option>Fait votre choix...</option>
-                      <option>Ch 1</option>
-                      <option>Ch 2</option>
-                      <option>Ch 3</option>
-                    </Input>
-                  </Col>
-                </Row>
-              </FormGroup>
+             
             </Col>
           </Row>
         </Form>

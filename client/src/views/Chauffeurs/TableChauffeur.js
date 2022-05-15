@@ -77,9 +77,9 @@ function Table() {
     { field: "prenom", headerName: "Prenom", width: 100 },
     {
       field: "numtel",
-      headerName: "numtel",
+      headerName: "N de telephone",
       type: "number",
-      width: 120,
+      width: 140,
     },
 
     {

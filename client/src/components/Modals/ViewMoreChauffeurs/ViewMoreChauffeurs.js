@@ -57,7 +57,7 @@ function ViewMoreChauffeurs({ show, handleClose }) {
           <Col>
             <img
               src="https://www.kindpng.com/picc/m/14-148242_the-logo-kind-of-looks-like-a-person.png"
-              width={200}
+              width={100}
             />
           </Col>
         </Row>

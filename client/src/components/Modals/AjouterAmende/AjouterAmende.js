@@ -62,7 +62,7 @@ function AjouterAmende({ show, handleClose }) {
       fullscreen="sm"
       size="lg"
     >
-      <ModalHeader toggle={handleClose}>Declarer une amende </ModalHeader>
+      <ModalHeader toggle={handleClose}> <h4>Declarer une nouvelle amende</h4> </ModalHeader>
       <ModalBody>
         <Form>
           <Row>

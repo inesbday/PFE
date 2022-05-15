@@ -11,11 +11,11 @@ function ViewMore({ show, handleClose, rowID }) {
   return (
     <Modal show={show} onHide={handleClose} size="lg">
       <Modal.Header closeButton>
-        <Modal.Title> User n {rowID} </Modal.Title>
+        <Modal.Title> Utilisateur n: {rowID} </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Row>
-          <h4>Details user</h4>
+          <h4>Details utilisateurs</h4>
         </Row>
 
         <Row>

@@ -386,7 +386,7 @@ body > .navbar-collapse .logo .simple-text {
 .sidebar .logo-tim,
 body > .navbar-collapse .logo-tim {
   border-radius: 50%;
-  border: 1px solid #333;
+  border: 1px solid rgb(173, 47, 47);
   display: block;
   height: 61px;
   width: 61px;

@@ -3,20 +3,19 @@ import React from "react";
 import { Modal, Button, Row, Col, FormGroup } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { Input, Label } from "reactstrap";
+import panne from '../../redux/reducers/pannesReducer';
 
 function ViewMore({ show, handleClose, rowID }) {
   const {
     numero,
     date,
-    client,
-    typeFacture,
-    vehicule,
-    remorque,
+    cause,
+    piecejointe,
     chauffeur,
-    representant,
-
+    véhicule,
+    lieu,
     etat,
-  } = useSelector((state) => state.missions).filter(
+  } = useSelector((state) => state.pannes).filter(
     ({ id }) => id === rowID
   )[0];
 
@@ -27,39 +26,39 @@ function ViewMore({ show, handleClose, rowID }) {
       </Modal.Header>
       <Modal.Body>
         <Row>
-          <h4>Informations mission:</h4>
+          <h4>pannes</h4>
         </Row>
 
         <Row>
           <Col>
             <Row>
-              <h5 className="text-info col-6">Date:</h5>
+              <h5 className="text-info col-6">date:</h5>
               <p className="col-6 text-left">{date}</p>
             </Row>
 
             <Row>
-              <h5 className="text-info col-6">Clients:</h5>
-              <p className="col-6 text-left">{client}</p>
+              <h5 className="text-info col-6">cause:</h5>
+              <p className="col-6 text-left">{cause}</p>
             </Row>
 
             <Row>
-              <h5 className="text-info col-6">Type de facturation:</h5>
-              <p className="col-6 text-left">{typeFacture}</p>
+              <h5 className="text-info col-6">piecejointe:</h5>
+              <p className="col-6 text-left">{piecejointe}</p>
             </Row>
 
             <Row>
-              <h5 className="text-info col-6">Véhicule:</h5>
-              <p className="col-6 text-left">{vehicule}</p>
+              <h5 className="text-info col-6">chauffeur:</h5>
+              <p className="col-6 text-left">{chauffeur}</p>
             </Row>
 
             <Row>
-              <h5 className="text-info col-6">Remorque:</h5>
-              <p className="col-6 text-left">{remorque}</p>
+              <h5 className="text-info col-6">véhicule:</h5>
+              <p className="col-6 text-left">{véhicule}</p>
             </Row>
 
             <Row>
-              <h5 className="text-info col-6">Chauffeur:</h5>
-              <p className="col-6">{chauffeur}</p>
+              <h5 className="text-info col-6">lieu:</h5>
+              <p className="col-6">{lieu}</p>
             </Row>
           </Col>
 
