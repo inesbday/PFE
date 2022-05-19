@@ -28,8 +28,8 @@ function ModifyUserModal({ show, handleClose, rowID }) {
     id: user.id,
     nom: user.nom,
     prenom: user.prenom,
-    email: user.email,
-    numtel: user.numtel,
+    /*email: user.email,
+    numtel: user.numtel,*/
     role: user.role,
     datecreation: user.datecreation,
     motdepasse: user.motdepasse,
@@ -46,7 +46,7 @@ function ModifyUserModal({ show, handleClose, rowID }) {
 
     handleClose();
 
-    toast.success("User modifié avec succées");
+    toast.success("Utilisateur modifié avec succées");
   };
 
   return (
@@ -82,7 +82,7 @@ function ModifyUserModal({ show, handleClose, rowID }) {
 
                   <Col>
                     <Label for="prenom">
-                      prenom d'utilisateur{" "}
+                      Prenom d'utilisateur{" "}
                       <strong className="text-danger">*</strong>
                     </Label>
                     <Input
@@ -96,7 +96,7 @@ function ModifyUserModal({ show, handleClose, rowID }) {
                   </Col>
                 </Row>
               </FormGroup>
-              <FormGroup>
+              {/* <FormGroup>
                 <Row>
                   <Col>
                     <Label for="email">
@@ -126,7 +126,7 @@ function ModifyUserModal({ show, handleClose, rowID }) {
                     />
                   </Col>
                 </Row>
-              </FormGroup>
+              </FormGroup>*/}
 
               <FormGroup>
                 <Row>
@@ -157,7 +157,24 @@ function ModifyUserModal({ show, handleClose, rowID }) {
                 <Row>
                   <Col>
                     <Label for="motdepasse">
-                      mot de passe <strong className="text-danger">*</strong>
+                      Mot de passe <strong className="text-danger">*</strong>
+                    </Label>
+                    <Input
+                      id="motdepasse"
+                      name="motdepasse"
+                      type="password"
+                      value={state.motdepasse}
+                      required
+                      onChange={(event) => changeCreds(event)}
+                    ></Input>
+                  </Col>
+                </Row>
+              </FormGroup>
+              <FormGroup>
+                <Row>
+                  <Col>
+                    <Label for="motdepasse">
+                      Confirmer mot de passe <strong className="text-danger">*</strong>
                     </Label>
                     <Input
                       id="motdepasse"

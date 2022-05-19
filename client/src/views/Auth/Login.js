@@ -45,7 +45,7 @@ function Login() {
       <Card className={styles.login__body}>
         <CardBody className="d-flex flex-column justify-content-center align-items-center">
           <CardTitle>
-            <h2>Log-in</h2>
+            <h2>Login</h2>
           </CardTitle>
 
           <Form className="mt-2">

@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Modal, Button, Row, Col } from "react-bootstrap";
+import car from "./car.png";
 
 function ViewMoreCars({ show, handleClose }) {
   return (
@@ -10,28 +11,26 @@ function ViewMoreCars({ show, handleClose }) {
       </Modal.Header>
       <Modal.Body>
         <Row>
-          <h4>Mercedes </h4>
+          <h4>Isuzu </h4>
         </Row>
 
         <Row>
           <Col>
             <Row>
-              <h5 className="text-info col-6">Date:</h5>
-              <p className="col-6 text-left">20/03/2022</p>
-            </Row>
-
-            <Row>
-              <h5 className="text-info col-6">Matricule</h5>
-              <p className="col-6 text-left">33-999-22</p>
+              <h5 className="text-info col-6">Immatriculation</h5>
+              <p className="col-6 text-left">3486TU84</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">Carte grise:</h5>
               <p className="col-6 text-left">Type 1</p>
             </Row>
-
             <Row>
-              <h5 className="text-info col-6">type carburant</h5>
+              <h5 className="text-info col-6">Date mise en service:</h5>
+              <p className="col-6 text-left">20/03/2022</p>
+            </Row>
+            <Row>
+              <h5 className="text-info col-6">Type carburant</h5>
               <p className="col-6 text-left">Essence</p>
             </Row>
 
@@ -42,32 +41,20 @@ function ViewMoreCars({ show, handleClose }) {
 
             <Row>
               <h5 className="text-info col-6">Chauffeur:</h5>
-              <p className="col-6">Mohamed mohamed</p>
+              <p className="col-6">Mohamed Salah</p>
             </Row>
-
             <Row>
-              <h5 className="text-info col-6">N° </h5>
-              <p className="col-6">123456</p>
+              <h5 className="text-info col-6">Etat:</h5>
+              <p className="col-6">En bonne etat</p>
             </Row>
-
             <Row>
-              <h5 className="text-info col-6">Date :</h5>
-              <p className="col-6">22/03/2022</p>
-            </Row>
-
-            
-
-            <Row>
-              <h5 className="text-info col-6">type</h5>
-              <p className="col-6">type 1</p>
+              <h5 className="text-info col-6">Date achat:</h5>
+              <p className="col-6">21-01-2019</p>
             </Row>
           </Col>
 
           <Col>
-            <img
-              src="https://www.isuzu.fr/sites/default/files/ISUZU_D-Max_Valencia%20orange%20Metallic%20front%20SPACE%20N60FF-min.png"
-              width={200}
-            />
+            <img src={car} width="250" />
           </Col>
         </Row>
       </Modal.Body>

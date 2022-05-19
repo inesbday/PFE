@@ -55,60 +55,8 @@ function HeaderTest() {
               </form>
             </ul>
             <ul className="navbar-nav">
-              <li className="dropdown nav-item">
-                <a
-                  href="#"
-                  className="dropdown-toggle nav-link"
-                  data-toggle="dropdown"
-                >
-                  <i className="nc-icon nc-bell-55"></i>
-                  <span className="notification">5</span>
-                  <span className="d-lg-none">Notification</span>
-                </a>
-                <ul className="dropdown-menu">
-                  <a className="dropdown-item" href="#">
-                    Notification 1
-                  </a>
-                  <a className="dropdown-item" href="#">
-                    Notification 2
-                  </a>
-                  <a className="dropdown-item" href="#">
-                    Notification 3
-                  </a>
-                  <a className="dropdown-item" href="#">
-                    Notification 4
-                  </a>
-                  <a className="dropdown-item" href="#">
-                    Notification 5
-                  </a>
-                </ul>
-              </li>
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="https://example.com/"
-                  id="navbarDropdownMenuLink"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <i className="nc-icon nc-bullet-list-67"></i>
-                  <span className="d-lg-none">Autres</span>
-                </a>
-                <div
-                  className="dropdown-menu dropdown-menu-right"
-                  aria-labelledby="navbarDropdownMenuLink"
-                >
-                  <a className="dropdown-item" href="#">
-                    <i className="nc-icon nc-settings-90"></i> Settings
-                  </a>
-                  <div className="divider"></div>
-
-                  <a href="#" className="dropdown-item text-danger">
-                    <i className="nc-icon nc-button-power"></i> Log out
-                  </a>
-                </div>
-              </li>
+              
+               
             </ul>
           </div>
         </div>

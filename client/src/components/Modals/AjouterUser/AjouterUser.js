@@ -31,8 +31,8 @@ function AjouterUser({ show, handleClose }) {
     id: uuidv4(),
     nom: "",
     prenom: "",
-    email: "",
-    numtel: "",
+    //email: "",
+    //numtel: "",
     role: "",
     datecreation: "",
   });
@@ -59,7 +59,7 @@ function AjouterUser({ show, handleClose }) {
     >
       <ModalHeader toggle={handleClose}>
         {" "}
-        <h4>Ajouter un utilisateur </h4>
+        <h4>Ajouter un nouvel utilisateur </h4>
       </ModalHeader>
       <ModalBody>
         <Form>
@@ -85,7 +85,7 @@ function AjouterUser({ show, handleClose }) {
 
                   <Col>
                     <Label for="prenom">
-                      prenom d'utilisateur{" "}
+                      Prénom d'utilisateur{" "}
                       <strong className="text-danger">*</strong>
                     </Label>
                     <Input
@@ -99,7 +99,7 @@ function AjouterUser({ show, handleClose }) {
                   </Col>
                 </Row>
               </FormGroup>
-              <FormGroup>
+              {/* <FormGroup>
                 <Row>
                   <Col>
                     <Label for="email">
@@ -114,22 +114,8 @@ function AjouterUser({ show, handleClose }) {
                       onChange={(event) => changeCreds(event)}
                     />
                   </Col>
-
-                  <Col>
-                    <Label for="numtel">
-                      N de telephone <strong className="text-danger">*</strong>
-                    </Label>
-                    <Input
-                      id="numtel"
-                      name="numtel"
-                      type="number"
-                      onChange={(event) => changeCreds(event)}
-                      value={state.numtel}
-                      required
-                    />
-                  </Col>
                 </Row>
-              </FormGroup>
+              </FormGroup>*/}
 
               <FormGroup>
                 <Row>
@@ -160,7 +146,25 @@ function AjouterUser({ show, handleClose }) {
                 <Row>
                   <Col>
                     <Label for="motdepasse">
-                      mot de passe <strong className="text-danger">*</strong>
+                      Mot de passe <strong className="text-danger">*</strong>
+                    </Label>
+                    <Input
+                      id="motdepasse"
+                      name="motdepasse"
+                      type="password"
+                      value={state.motdepasse}
+                      required
+                      onChange={(event) => changeCreds(event)}
+                    ></Input>
+                  </Col>
+                </Row>
+              </FormGroup>
+              <FormGroup>
+                <Row>
+                  <Col>
+                    <Label for="motdepasse">
+                      Confirmer mot de passe{" "}
+                      <strong className="text-danger">*</strong>
                     </Label>
                     <Input
                       id="motdepasse"
@@ -190,6 +194,7 @@ function AjouterUser({ show, handleClose }) {
                     ></Input>
                   </Col>
                 </Row>
+                
               </FormGroup>
             </Col>
           </Row>

@@ -45,6 +45,13 @@ function ModifyModal({ show, handleClose, rowID }) {
     distance: mission.distance,
     quantite: mission.quantite,
     ecartPoids: mission.ecartPoids,
+    prixu: mission.prixu,
+    brutht: mission.brutht,
+    netht: mission.netht,
+    mttTVA: mission.mttTVA,
+    totalTTC: mission.totalTTC,
+    numFacture: mission.numFacture,
+    observation: mission.observation,
     etat: mission.etat,
   });
 
@@ -471,6 +478,127 @@ function ModifyModal({ show, handleClose, rowID }) {
                       type="text"
                       placeholder="0.000"
                       value={state.ecartPoids}
+                      onChange={(event) => changeCreds(event)}
+                      required
+                    />
+                  </Col>
+                </Row>
+              </FormGroup>
+              <FormGroup>
+                <Row>
+                  <h4>Facturation</h4>
+                </Row>
+                <Row>
+                  <Col>
+                    <Label for="prixu">
+                      Prix U <strong className="text-danger">*</strong>
+                    </Label>
+                    <Input
+                      id="prixu"
+                      name="prixu"
+                      type="text"
+                      placeholder="Prix U"
+                      value={state.prixu}
+                      onChange={(event) => changeCreds(event)}
+                      required
+                    />
+                  </Col>
+                  <Col>
+                    <Label for="brutht">
+                      Brut HT<strong className="text-danger">*</strong>
+                    </Label>
+                    <Input
+                      id="brutht"
+                      name="brutht"
+                      type="text"
+                      placeholder="Brut HT"
+                      value={state.brutht}
+                      onChange={(event) => changeCreds(event)}
+                      required
+                    />
+                  </Col>
+
+                  <Col>
+                    <Label for="netht">
+                      Net HT <strong className="text-danger">*</strong>
+                    </Label>
+                    <Input
+                      id="netht"
+                      name="netht"
+                      type="text"
+                      placeholder="Net HT"
+                      value={state.netht}
+                      onChange={(event) => changeCreds(event)}
+                      required
+                    />
+                  </Col>
+                </Row>
+              </FormGroup>
+              <FormGroup>
+                <Row>
+                  <h4>Taux</h4>
+                </Row>
+                <Row>
+                  <Col>
+                    <Label for="mttTVA">
+                      MTT TVA <strong className="text-danger">*</strong>
+                    </Label>
+                    <Input
+                      id="mttTVA"
+                      name="mttTVA"
+                      type="text"
+                      placeholder="MTT TVA"
+                      value={state.mttTVA}
+                      onChange={(event) => changeCreds(event)}
+                      required
+                    />
+                  </Col>
+                  <Col>
+                    <Label for="totalTTC">
+                      Total TTC <strong className="text-danger">*</strong>
+                    </Label>
+                    <Input
+                      id="totalTTC"
+                      name="totalTTC"
+                      type="text"
+                      placeholder="TOTAL TTC"
+                      value={state.totalTTC}
+                      onChange={(event) => changeCreds(event)}
+                      required
+                    />
+                  </Col>
+                </Row>
+              </FormGroup>
+              <FormGroup>
+                <Row>
+                  <Col>
+                    <Label for="numFacture">
+                      N Facture' <strong className="text-danger">*</strong>
+                    </Label>
+                    <Input
+                      id="numFacture"
+                      name="numFacture"
+                      type="text"
+                      value={state.numFacture}
+                      placeholder="numFacture"
+                      onChange={(event) => changeCreds(event)}
+                      required
+                    />
+                  </Col>
+                </Row>
+              </FormGroup>
+              <FormGroup>
+                <Row>
+                  <Col>
+                    <Label for="observation">
+                      Observation <strong className="text-danger">*</strong>
+                    </Label>
+                    <Input
+                      id="observation"
+                      name="observation"
+                      type="textarea"
+                      value={state.observation}
+                      placeholder="observation"
                       onChange={(event) => changeCreds(event)}
                       required
                     />

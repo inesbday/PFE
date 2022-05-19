@@ -1,10 +1,11 @@
 import React from "react";
 
 import { Modal, Button, Row, Col } from "react-bootstrap";
-
+import driver from "./driver.png"
 function ViewMoreChauffeurs({ show, handleClose }) {
   return (
-    <Modal show={show} onHide={handleClose} size="lg">
+    <Modal show={show} onHide={handleClose}  fullscreen="sm"
+    size="l">
       <Modal.Header closeButton>
         <Modal.Title>Fiche technique</Modal.Title>
       </Modal.Header>
@@ -24,10 +25,7 @@ function ViewMoreChauffeurs({ show, handleClose }) {
               <h5 className="text-info col-6">Prenom</h5>
               <p className="col-6 text-left">Ali</p>
             </Row>
-            <Row>
-              <h5 className="text-info col-6">N° Cin </h5>
-              <p className="col-6">12812581</p>
-            </Row>
+            
             <Row>
               <h5 className="text-info col-6">Numero tel:</h5>
               <p className="col-6 text-left">55-555-555</p>
@@ -38,27 +36,18 @@ function ViewMoreChauffeurs({ show, handleClose }) {
               <p className="col-6 text-left">Sousse jawhara</p>
             </Row>
 
-            <Row>
-              <h5 className="text-info col-6">Num Permis:</h5>
-              <p className="col-6 text-left">123456789</p>
-            </Row>
+            
 
-            <Row>
-              <h5 className="text-info col-6">Date de naissance:</h5>
-              <p className="col-6">20-20-1990</p>
-            </Row>
+            
 
-            <Row>
-              <h5 className="text-info col-6">type</h5>
-              <p className="col-6">type 1</p>
-            </Row>
+             
           </Col>
 
           <Col>
-            <img
-              src="https://www.kindpng.com/picc/m/14-148242_the-logo-kind-of-looks-like-a-person.png"
-              width={100}
-            />
+          <img src={driver}width="150"  />
+
+
+            
           </Col>
         </Row>
       </Modal.Body>

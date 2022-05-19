@@ -3,14 +3,14 @@ import Vehicules from "./views/Vehicules/Vehicules.js";
 import Chauffeurs from "./views/Chauffeurs/Chauffeurs.js";
 import Mecaniciens from "./views/Mecaniciens/Mecaniciens.js";
 import Missions from "./views/Missions/Missions";
+import Mec from "./views/Mec/Mec";
 import Amendes from "./views/Amendes/Amendes";
 import MissionChauffeur from "./views/MissionChauffeur/MissionChauffeur";
 import Utilisateurs from "./views/Utilisateurs/Utilisateurs";
 import Notifications from "./views/Notifications/Notifications";
 import MissionMecanicien from "./views/MissionMecanicien/MissionMecanicien";
+import Checklist from "./views/Checklist/Checklist";
 import Pannes from "./views/Pannes/Pannes";
-import Checklist from "./components/Checklist/Checklist";
-
 const dashboardRoutes = [
   {
     path: "/dashboard",
@@ -19,6 +19,7 @@ const dashboardRoutes = [
     component: Dashboard,
     layout: "/admin",
   },
+
   {
     path: "/Utilisateurs",
     name: "Utilisateurs",
@@ -55,6 +56,22 @@ const dashboardRoutes = [
     icon: " fa-solid fa-pen-to-square",
     component: Missions,
     layout: "/admin",
+    subMenus: [
+      {
+        path: "/Missions",
+        name: "chauffeurs",
+        icon: "fa-solid fa-pen-to-square",
+        component: Missions,
+        layout: "/admin",
+      },
+      {
+        path: "/Mec",
+        name: "mecaniciens",
+        icon: "fa-solid fa-pen-to-square",
+        component: Mec,
+        layout: "/admin",
+      },
+    ],
   },
   {
     path: "/Pannes",
@@ -69,6 +86,13 @@ const dashboardRoutes = [
     name: "Amendes",
     icon: "fa-solid fa-file-invoice-dollar",
     component: Amendes,
+    layout: "/admin",
+  },
+  {
+    path: "/Checklist",
+    name: "Liste de controle",
+    icon: "fa-solid fa-list-check",
+    component: Checklist,
     layout: "/admin",
   },
   {
@@ -160,7 +184,7 @@ const dashboardRoutes = [
   },
 
   {
-    path: "/checklist",
+    path: "/Checklist",
     name: "Liste de controle",
     icon: "fa-solid fa-list-check",
     component: Checklist,

@@ -13,23 +13,18 @@ import {
   Col,
 } from "reactstrap";
 import CheckItem from "./CheckItem";
+import CheckItemBefore from "./CheckItemBefore";
 
-function OptionModal({ show, handleClose }) {
+function OptionModalBefore({ show, handleClose }) {
   return (
-    <Modal
-      isOpen={show}
-      toggle={handleClose}
-      centered
-      fullscreen="sm"
-      size="lg"
-    >
-      <ModalHeader closeButton>Option Modal</ModalHeader>
+    <Modal isOpen={show} toggle={handleClose} centered fullscreen="sm" size="l">
+      <ModalHeader closeButton>Liste de controle entrée </ModalHeader>
 
       <ModalBody>
-        <CheckItem />
+        <CheckItemBefore />
       </ModalBody>
       <ModalFooter>
-        <Button color="light" onClick={handleClose}>
+        <Button color="danger" onClick={handleClose}>
           Annuler
         </Button>
 
@@ -41,4 +36,4 @@ function OptionModal({ show, handleClose }) {
   );
 }
 
-export default OptionModal;
+export default OptionModalBefore;

@@ -9,61 +9,36 @@ const rows = [
     id: 1,
     prenom: "Ahmed",
     nom: "Ali",
-    numtel: "55 555 555",
+    numtel: "23 555 874",
+    adresse: "sousse",
   },
   {
     id: 2,
-    prenom: "Ahmed",
-    nom: "Ali",
-    numtel: "55 555 555",
+    prenom: "Mohamed",
+    nom: "Ben Salem",
+    numtel: "55 329 555",
+    adresse: "Tunis",
   },
   {
     id: 3,
-    prenom: "Ahmed",
-    nom: "Ali",
-    numtel: "55 555 555",
+    prenom: "Samir",
+    nom: "Ben ahmed",
+    numtel: "28 002 471",
+    adresse: "Sfax",
   },
   {
     id: 4,
-    prenom: "Ahmed",
-    nom: "Ali",
-    numtel: "55 555 555",
+    prenom: "Hammadi",
+    nom: "Ben Ali",
+    numtel: "50 998 741",
+    adresse: "Beja",
   },
   {
     id: 5,
     prenom: "Ahmed",
     nom: "Ali",
     numtel: "55 555 555",
-  },
-  {
-    id: 6,
-    prenom: "Ahmed",
-    nom: "Ali",
-    numtel: "55 555 555",
-  },
-  {
-    id: 7,
-    prenom: "Ahmed",
-    nom: "Ali",
-    numtel: "55 555 555",
-  },
-  {
-    id: 8,
-    prenom: "Ahmed",
-    nom: "Ali",
-    numtel: "55 555 555",
-  },
-  {
-    id: 9,
-    prenom: "Ahmed",
-    nom: "Ali",
-    numtel: "55 555 555",
-  },
-  {
-    id: 10,
-    prenom: "Ahmed",
-    nom: "Ali",
-    numtel: "55 555 555",
+    adresse: "sousse",
   },
 ];
 
@@ -73,20 +48,24 @@ function Table() {
   const toggleShow = () => setShow(!show);
 
   const columns = [
-    { field: "id", headerName: "ID", width: 70},
-    { field: "nom", headerName: "Nom", width: 100},
-    { field: "prenom", headerName: "Prenom", width: 130},
+    { field: "id", headerName: "ID", width: 70 },
+    { field: "nom", headerName: "Nom", width: 120 },
+    { field: "prenom", headerName: "Prenom", width: 120 },
     {
       field: "numtel",
       headerName: "N de telephone",
-      type: "number",
-      width: 110,
+      width: 140,
+    },
+    {
+      field: "adresse",
+      headerName: "Adresse",
+      width: 140,
     },
 
     {
       field: "viewMore",
       headerName: "Details",
-    
+
       width: 80,
       renderCell: () => (
         <button

@@ -1,10 +1,11 @@
 import React from "react";
 
 import { Modal, Button, Row, Col } from "react-bootstrap";
-
+import mec from "./mec.png";
 function ViewMoreMecanicien({ show, handleClose }) {
   return (
-    <Modal show={show} onHide={handleClose} size="lg">
+    <Modal show={show} onHide={handleClose} fullscreen="sm"
+    size="l">
       <Modal.Header closeButton>
         <Modal.Title>Fiche technique</Modal.Title>
       </Modal.Header>
@@ -24,10 +25,7 @@ function ViewMoreMecanicien({ show, handleClose }) {
               <h5 className="text-info col-6">Prenom</h5>
               <p className="col-6 text-left">Ali</p>
             </Row>
-            <Row>
-              <h5 className="text-info col-6">N° Cin </h5>
-              <p className="col-6">12812581</p>
-            </Row>
+            
             <Row>
               <h5 className="text-info col-6">Numero tel:</h5>
               <p className="col-6 text-left">55-555-555</p>
@@ -38,28 +36,10 @@ function ViewMoreMecanicien({ show, handleClose }) {
               <p className="col-6 text-left">Sousse jawhara</p>
             </Row>
 
-            <Row>
-              <h5 className="text-info col-6">Num Permis:</h5>
-              <p className="col-6 text-left">123456789</p>
-            </Row>
-
-            <Row>
-              <h5 className="text-info col-6">Date de naissance:</h5>
-              <p className="col-6">20-20-1990</p>
-            </Row>
-
-            <Row>
-              <h5 className="text-info col-6">type</h5>
-              <p className="col-6">type 1</p>
-            </Row>
-          </Col>
-
+            
+           </Col>
           <Col>
-            <img
-              src="https://thumbs.dreamstime.com/z/bande-dessin%C3%A9e-un-m%C3%A9canicien-53892493.jpg"
-              width={100}
-              
-            />
+            <img src={mec} width="250" />
           </Col>
         </Row>
       </Modal.Body>

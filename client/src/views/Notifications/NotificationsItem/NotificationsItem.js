@@ -18,7 +18,7 @@ function NotificationsItem({ id, id_mission }) {
         <Col>Notifications : vous avez une mission en attente!</Col>
         <Col className=" justify-self-end">
           <Button variant="info" onClick={toggleShow}>
-            Voir plus mission
+            Voir plus details
           </Button>
         </Col>
       </Row>

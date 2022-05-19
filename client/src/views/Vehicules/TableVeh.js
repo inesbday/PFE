@@ -8,72 +8,55 @@ import ViewMoreCars from "../../components/Modals/ViewMoreCars/ViewMoreCars";
 const rows = [
   {
     id: 1,
+    immatriculation: "2590-120",
     cartegrise: "111-888-8888",
-    matricule: "2590-120",
-    date: 35,
-    etat: "mission",
+    date: "20-02-2021",
+    typecarburant: "Essence",
+    remorque: " 223-887-77",
+    etat: "panne",
   },
   {
     id: 2,
+    immatriculation: "2590-120",
     cartegrise: "111-888-8888",
-    matricule: "2590-120",
-    date: 42,
+
+    date: "20-02-2021",
+    typecarburant: "Essence",
+    remorque: " 223-887-77",
+
     etat: "panne",
   },
   {
     id: 3,
+    immatriculation: "7102TU87",
+
     cartegrise: "111-888-8888",
-    matricule: "2590-120",
-    date: 45,
-    etat: "mission",
+    date: "20-02-2021",
+    typecarburant: "Essence",
+    remorque: " 223-887-77",
+
+    etat: "bonne",
   },
   {
     id: 4,
+    immatriculation: "332TU110",
+
     cartegrise: "111-888-8888",
-    matricule: "Arya",
-    date: 16,
-    etat: "bonne",
+
+    date: "20-02-2021",
+    typecarburant: "Essence",
+    remorque: " 223-887-77",
+
+    etat: "panne",
   },
   {
     id: 5,
+    immatriculation: "332TU87",
     cartegrise: "111-888-8888",
-    matricule: "Daenerys",
-    date: 23,
-    etat: "panne",
-  },
-  {
-    id: 6,
-    cartegrise: "111-888-8888",
-    matricule: null,
-    date: 150,
-    etat: "bonne",
-  },
-  {
-    id: 7,
-    cartegrise: "111-888-8888",
-    matricule: "Ferrara",
-    date: 44,
-    etat: "entretien",
-  },
-  {
-    id: 8,
-    cartegrise: "111-888-8888",
-    matricule: "Rossini",
-    date: 36,
-    etat: "mission",
-  },
-  {
-    id: 9,
-    cartegrise: "111-888-8888",
-    matricule: "22-88-888",
-    date: 65,
-    etat: "panne",
-  },
-  {
-    id: 10,
-    cartegrise: "222-777",
-    matricule: "2-222-222",
-    date: 25,
+    date: "20-02-2021",
+    typecarburant: "Essence",
+    remorque: " 223-887-77",
+
     etat: "bonne",
   },
 ];
@@ -84,13 +67,15 @@ function Table() {
   const toggleShow = () => setShow(!show);
 
   const columns = [
-    { field: "id", headerName: "ID", width: 100},
-    { field: "matricule", headerName: "Matricule", width: 90 },
-    { field: "cartegrise", headerName: "Carte grise", width: 110 },
-    { field: "date", headerName: "date", type: "number", width: 90 },
+    { field: "id", headerName: "ID", width: 100 },
+    { field: "immatriculation", headerName: "Immatriculation", width: 130 },
+    { field: "cartegrise", headerName: "Carte grise", width: 130 },
+    { field: "date", headerName: "Date", width: 130 },
+    { field: "typecarburant", headerName: "Type carburant", width: 130 },
+    { field: "remorque", headerName: "Remorque", width: 130 },
     {
       field: "etat",
-      headerName: "etat",
+      headerName: "Etat",
       description: "This column has a value getter and is not sortable.",
       sortable: false,
       width: 100,
@@ -128,12 +113,12 @@ function Table() {
       width: 160,
       renderCell: () => (
         <button
-            className="btn btn-warning"
-            onClick={toggleShow}
-            title="Voir plus"
-          >
-            <i className="fa-solid fa-eye"></i>
-          </button>
+          className="btn btn-warning"
+          onClick={toggleShow}
+          title="Voir plus"
+        >
+          <i className="fa-solid fa-eye"></i>
+        </button>
       ),
     },
   ];

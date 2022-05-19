@@ -3,18 +3,21 @@ import { DataGrid } from "@mui/x-data-grid";
 import styles from "./table.module.css";
 import ViewMore from "./ViewMore";
 import { useSelector } from "react-redux";
-
+import ConfirmModal from "../../components/Modals/ConfirmModal/ConfirmModal";
+import ModifyPanneModal from "./modals/ModifyPanneModal";
+import { deletePanne } from "../../redux/actions/panneAction";
 let rowID;
 
 function Table() {
-  const [show, setShow] = useState(false);
+  const [showViewMore, setShowViewMore] = useState(false);
+  const [showModify, setShowModify] = useState(false);
+  const [showDelete, setShowDelete] = useState(false);
 
-  let rows = useSelector((state) => state.pannes);
-  rows = [...rows].reverse();
+  const toggleShowViewMore = () => setShowViewMore(!showViewMore);
+  const toggleShowModify = () => setShowModify(!showModify);
+  const toggleShowDelete = () => setShowDelete(!showDelete);
 
-  const toggleShow = () => {
-    setShow(!show);
-  };
+  const pannes = useSelector((state) => state.pannes);
 
   const columns = [
     {
@@ -25,7 +28,7 @@ function Table() {
         return params.value.toString().substring(0, 2);
       },
     },
-    { field: "numero", headerName: "numero", width: 100 },
+     
     {
       field: "date",
       headerName: "Date",
@@ -36,11 +39,7 @@ function Table() {
       headerName: "Cause",
       width: 130,
     },
-    {
-      field: "piecejointe",
-      headerName: "Piece jointe",
-      width: 130,
-    },
+
     {
       field: "chauffeur",
       headerName: "Chauffeur",
@@ -49,6 +48,11 @@ function Table() {
     {
       field: "véhicule",
       headerName: "véhicule",
+      width: 100,
+    },
+    {
+      field: "lieu",
+      headerName: "lieu",
       width: 100,
     },
     {
@@ -92,21 +96,27 @@ function Table() {
       width: 220,
       renderCell: () => (
         <div className="d-flex justify-content-between align-items-center w-100">
-          <button className="btn btn-secondary" title="Modifier">
+          <button
+            className="btn btn-secondary"
+            title="Modifier"
+            onClick={toggleShowModify}
+          >
             <i className="fa-solid fa-pen"></i>
           </button>
+
           <button
             className="btn btn-warning"
-            onClick={toggleShow}
             title="Voir plus"
+            onClick={toggleShowViewMore}
           >
             <i className="fa-solid fa-eye"></i>
           </button>
 
-          <button className="btn btn-primary" title="Télécharger">
-            <i className="fa-solid fa-circle-down"></i>
-          </button>
-          <button className="btn btn-danger" title="Supprimer">
+          <button
+            className="btn btn-danger"
+            title="Supprimer"
+            onClick={toggleShowDelete}
+          >
             <i className="fa-solid fa-trash"></i>
           </button>
         </div>
@@ -117,7 +127,7 @@ function Table() {
   return (
     <div style={{ height: 400, width: "100%" }}>
       <DataGrid
-        rows={rows}
+        rows={pannes}
         columns={columns}
         pageSize={5}
         rowsPerPageOptions={[5]}
@@ -125,8 +135,29 @@ function Table() {
           rowID = id;
         }}
       />
-      {show && (
-        <ViewMore show={show} handleClose={toggleShow} rowID={rowID[0]} />
+      {showViewMore && (
+        <ViewMore
+          show={showViewMore}
+          handleClose={toggleShowViewMore}
+          rowID={rowID[0]}
+        />
+      )}
+
+      {showDelete && (
+        <ConfirmModal
+          show={showDelete}
+          handleClose={toggleShowDelete}
+          rowID={rowID[0]}
+          reduxAction={deletePanne}
+        />
+      )}
+
+      {showModify && (
+        <ModifyPanneModal
+          show={showModify}
+          handleClose={toggleShowModify}
+          rowID={rowID[0]}
+        />
       )}
     </div>
   );

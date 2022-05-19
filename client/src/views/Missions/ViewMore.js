@@ -32,6 +32,13 @@ function ViewMore({ show, handleClose, rowID }) {
     distance: mission.distance,
     quantite: mission.quantite,
     ecartPoids: mission.ecartPoids,
+    prixu: mission.prixu,
+    brutht: mission.brutht,
+    netht: mission.netht,
+    mttTVA: mission.mttTVA,
+    totalTTC: mission.totalTTC,
+    numFacture: mission.numFacture,
+    observation: mission.observation,
     etat: mission.etat,
   });
 
@@ -123,7 +130,7 @@ function ViewMore({ show, handleClose, rowID }) {
             </Row>
 
             <Row>
-              <h5 className="text-info col-6">lieu arrivée</h5>
+              <h5 className="text-info col-6">Lieu arrivée</h5>
               <p className="col-6">{mission.lieuArrive}</p>
             </Row>
 
@@ -140,6 +147,35 @@ function ViewMore({ show, handleClose, rowID }) {
             <Row>
               <h5 className="text-info col-6">Ecart poids</h5>
               <p className="col-6">{mission.ecartPoids}</p>
+            </Row>
+            <Row>
+              <h5 className="text-info col-6">Prix U</h5>
+              <p className="col-6">{mission.prixu}</p>
+            </Row>
+            <Row>
+              <h5 className="text-info col-6">Brut Ht</h5>
+              <p className="col-6">{mission.brutht}</p>
+            </Row>
+            <Row>
+              <h5 className="text-info col-6">NET HT</h5>
+              <p className="col-6">{mission.netht}</p>
+            </Row>
+
+            <Row>
+              <h5 className="text-info col-6">MTT TVA</h5>
+              <p className="col-6">{mission.mttTVA}</p>
+            </Row>
+            <Row>
+              <h5 className="text-info col-6">Total TTC</h5>
+              <p className="col-6">{mission.totalTTC}</p>
+            </Row>
+            <Row>
+              <h5 className="text-info col-6">Numéro Facture</h5>
+              <p className="col-6">{mission.numFacture}</p>
+            </Row>
+            <Row>
+              <h5 className="text-info col-6">Observation</h5>
+              <p className="col-6">{mission.observation}</p>
             </Row>
             <Row>
               <FormGroup>

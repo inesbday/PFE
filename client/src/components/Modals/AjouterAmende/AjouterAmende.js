@@ -51,7 +51,7 @@ function AjouterAmende({ show, handleClose }) {
       addNotification({ id: uuidv4(), date, seen: false, id_amende: state.id })
     );
     handleClose();
-    toast.success("amende ajouté avec succées");
+    toast.success("amende ajoutée avec succées");
   };
 
   return (

@@ -33,6 +33,7 @@ function Index() {
               render={(props) => <App {...props} />}
             />
           )}
+          
 
           <Route path="/login" render={() => <Login />} />
           <Route path="/forgotpassword" render={() => <ForgotPassword />} />

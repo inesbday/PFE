@@ -62,6 +62,26 @@ function App() {
     }
   }, [location]);
 
+  const getSubmenuRoutes = () => {
+    let subMenus = [];
+    if (auth) {
+      routes.forEach((prop, index) => {
+        if (prop.subMenus && prop.subMenus.length) {
+          subMenus.push(
+            ...prop.subMenus.map((subMenu, subMenuIndex) => (
+              <Route
+                path={subMenu.layout + subMenu.path}
+                render={(props) => <subMenu.component {...props} />}
+                key={subMenuIndex}
+              />
+            ))
+          );
+        }
+      });
+    }
+    return subMenus;
+  };
+
   return (
     <div className="wrapper">
       <ToastContainer pauseOnHover={false} autoClose={2000} />
@@ -69,7 +89,10 @@ function App() {
       <div className="main-panel" ref={mainPanel}>
         <AdminNavbar />
         <div className="content">
-          <Switch>{getRoutes(routes)}</Switch>
+          <Switch>
+            {getRoutes(routes)}
+            {getSubmenuRoutes()}
+          </Switch>
         </div>
         <Footer />
       </div>

@@ -13,10 +13,12 @@ const panne = (state = INITIAL_STATE, action) => {
     case ADD_PANNE:
       return [...state, action.payload];
 
-    case MODIFY_PANNE:
-      const index = state.findIndex((panne) => panne.id === action.payload.id);
-      state[index] = action.payload;
-      return [...state];
+      case MODIFY_PANNE:
+        const index = state.findIndex((panne) => panne.id === action.payload.id);
+  
+        const newTab = [...state];
+        newTab[index] = action.payload;
+        return [...newTab];
 
     case DELETE_PANNE:
       const newPanne = state.filter((panne) => panne.id !== action.payload[0]);

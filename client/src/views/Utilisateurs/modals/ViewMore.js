@@ -3,8 +3,10 @@ import React from "react";
 import { Modal, Button, Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
+import Avatar from "../../../assets/img/avatar.png";
+
 function ViewMore({ show, handleClose, rowID }) {
-  const { nom, prenom, email, numtel, role, datecreation } = useSelector(
+  const { nom, prenom, role, datecreation, photo } = useSelector(
     (state) => state.users
   ).filter(({ id }) => id === rowID)[0];
 
@@ -15,22 +17,22 @@ function ViewMore({ show, handleClose, rowID }) {
       </Modal.Header>
       <Modal.Body>
         <Row>
-          <h4>Details utilisateurs</h4>
-        </Row>
-
-        <Row>
           <Col>
-            <Row>
-              <h5 className="text-info col-6">Nom :</h5>
-              <p className="col-6 text-left">{nom}</p>
+            <Row className="mb-3">
+              <h4>Details utilisateurs</h4>
             </Row>
 
             <Row>
-              <h5 className="text-info col-6">Prenom:</h5>
+              <h5 className="text-info col-3">Nom :</h5>
+              <p className="col-3 text-left">{nom}</p>
+            </Row>
+
+            <Row>
+              <h5 className="text-info col-3">Prenom:</h5>
               <p className="col-6 text-left">{prenom}</p>
             </Row>
 
-            <Row>
+            {/* <Row>
               <h5 className="text-info col-6">E-mail :</h5>
               <p className="col-6 text-left">{email}</p>
             </Row>
@@ -38,19 +40,21 @@ function ViewMore({ show, handleClose, rowID }) {
             <Row>
               <h5 className="text-info col-6">Numero de telephone:</h5>
               <p className="col-6 text-left">{numtel}</p>
+            </Row>*/}
+
+            <Row>
+              <h5 className="text-info col-3">Role:</h5>
+              <p className="col-6">{role}</p>
             </Row>
 
             <Row>
-              <h5 className="text-info col-6">Role</h5>
-              <p className="col-6">{role}</p>
+              <h5 className="text-info col-3">Date de creation:</h5>
+              <p className="col-6">{datecreation}</p>
             </Row>
           </Col>
 
-          <Col>
-            <Row>
-              <h5 className="text-info col-6">Date de creation</h5>
-              <p className="col-6">{datecreation}</p>
-            </Row>
+          <Col className="d-flex justify-content-center align-items-center col-4">
+            <img src={Avatar} alt="User pic" width={150} />
           </Col>
         </Row>
       </Modal.Body>

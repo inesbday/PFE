@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-
 import { v4 as uuidv4 } from "uuid";
-
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -33,7 +31,6 @@ const date =
 function AjouterPanne({ show, handleClose }) {
   const [state, setState] = useState({
     id: uuidv4(),
-    numero: "",
     date: "",
     cause: "",
     piecejointe: "",
@@ -60,7 +57,7 @@ function AjouterPanne({ show, handleClose }) {
       })
     );
     handleClose();
-    toast.success("Panne ajouté avec succées");
+    toast.success("Panne ajoutée avec succées");
   };
 
   return (
@@ -79,37 +76,6 @@ function AjouterPanne({ show, handleClose }) {
           <Row>
             {/* Left col */}
             <Col>
-              <FormGroup>
-                <Row>
-                  <Col>
-                    <Label for="numero">
-                      Numéro <strong className="text-danger">*</strong>
-                    </Label>
-                    <Input
-                      id="numero"
-                      name="numero"
-                      type="text"
-                      required
-                      value={state.numero}
-                      onChange={(event) => changeCreds(event)}
-                    />
-                  </Col>
-
-                  <Col>
-                    <Label for="date">
-                      Date <strong className="text-danger">*</strong>
-                    </Label>
-                    <Input
-                      id="date"
-                      name="date"
-                      type="date"
-                      onChange={(event) => changeCreds(event)}
-                      value={state.date}
-                      required
-                    />
-                  </Col>
-                </Row>
-              </FormGroup>
               <FormGroup>
                 <Row>
                   <Col>

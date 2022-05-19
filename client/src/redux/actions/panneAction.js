@@ -3,6 +3,8 @@ import {
   DELETE_PANNE,
   MODIFY_PANNE,
 } from "../constants/pannesConstants";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const addPanne = (payload) => {
   return {
@@ -18,9 +20,11 @@ export const modifyPanne = (payload) => {
   };
 };
 
-export const deletePanne = (payload) => {
-  return {
+export const deletePanne = (payload) => (dispatch) => {
+  dispatch({
     type: DELETE_PANNE,
     payload,
-  };
+  });
+
+  toast.success("Panne supprimé avec succées");
 };

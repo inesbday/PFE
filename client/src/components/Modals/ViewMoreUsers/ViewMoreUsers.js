@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Modal, Button, Row, Col } from "react-bootstrap";
-
+import driver from "../ViewMoreChauffeurs/driver.png";
 function ViewMoreUsers({ show, handleClose }) {
   return (
     <Modal show={show} onHide={handleClose} size="lg">
@@ -24,14 +24,14 @@ function ViewMoreUsers({ show, handleClose }) {
               <h5 className="text-info col-6">Prenom</h5>
               <p className="col-6 text-left">Ali</p>
             </Row>
-            <Row>
+            {/* <Row>
               <h5 className="text-info col-6">Email </h5>
               <p className="col-6">useruser@gmail.com</p>
             </Row>
             <Row>
               <h5 className="text-info col-6">Numero tel:</h5>
               <p className="col-6 text-left">55-555-555</p>
-            </Row>
+            </Row> */}
 
             <Row>
               <h5 className="text-info col-6">Role:</h5>
@@ -50,10 +50,7 @@ function ViewMoreUsers({ show, handleClose }) {
           </Col>
 
           <Col>
-            <img
-              src="https://www.kindpng.com/picc/m/14-148242_the-logo-kind-of-looks-like-a-person.png"
-              width={200}
-            />
+            <img src={driver} width="150" />
           </Col>
         </Row>
       </Modal.Body>

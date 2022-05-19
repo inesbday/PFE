@@ -60,7 +60,7 @@ function Dashboard() {
         </Col>
       </Row>
 
-      <Row>
+      {/*<Row>
         <Col>
           <Stack spacing={2}>
             <Alert variant="filled" severity="error">
@@ -77,7 +77,7 @@ function Dashboard() {
             </Alert>
           </Stack>
         </Col>
-      </Row>
+      </Row>*/}
     </Container>
   );
 }

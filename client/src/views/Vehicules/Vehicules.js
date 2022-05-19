@@ -13,6 +13,7 @@ function Vehicules() {
             infos="5"
             iconName="fa-solid fa-circle-check"
             bgColor="#38b000"
+            linkCard="/admin/vehicules"
           />
         </Col>
 
@@ -22,6 +23,7 @@ function Vehicules() {
             infos="2"
             iconName="fa-solid fa-ban"
             bgColor="#dc2f02"
+            linkCard="/admin/vehicules"
           />
         </Col>
 
@@ -31,6 +33,7 @@ function Vehicules() {
             infos="5"
             iconName="fa-solid fa-spinner"
             bgColor="#f77f00"
+            linkCard="/admin/vehicules"
           />
         </Col>
 
@@ -40,6 +43,7 @@ function Vehicules() {
             infos="5"
             iconName="fa-solid fa-clock"
             bgColor="#00b4d8"
+            linkCard="/admin/vehicules"
           />
         </Col>
       </Row>

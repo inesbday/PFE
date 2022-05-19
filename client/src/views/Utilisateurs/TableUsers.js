@@ -24,15 +24,15 @@ function Table() {
 
   const columns = [
     { field: "id", headerName: "ID", width: 10 },
-    { field: "nom", headerName: "Nom", width: 80 },
+    { field: "nom", headerName: "Nom", width: 130 },
     { field: "prenom", headerName: "Prenom", width: 120 },
-    { field: "email", headerName: "Email", width: 180 },
+    /*{{ field: "email", headerName: "Email", width: 180 },
     {
       field: "numtel",
       headerName: "N telephone",
       //type: "number",
       width: 130,
-    },
+    }}*/
     {
       field: "role",
       headerName: "Role",
@@ -46,7 +46,7 @@ function Table() {
 
     {
       field: "viewMore",
-      headerName: "Details",
+      headerName: "Actions",
       width: 220,
       renderCell: () => (
         <div className="d-flex justify-content-between align-items-center w-100">

@@ -27,5 +27,5 @@ export const deleteMission = (payload) => (dispatch) => {
     payload,
   });
 
-  toast.success("Mission supprimé avec succées");
+  toast.success("Mission supprimée avec succées");
 };

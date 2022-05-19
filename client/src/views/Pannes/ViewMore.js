@@ -1,28 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Modal, Button, Row, Col, FormGroup } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Input, Label } from "reactstrap";
-import panne from '../../redux/reducers/pannesReducer';
+import { modifyPanne } from "../../redux/actions/panneAction";
 
 function ViewMore({ show, handleClose, rowID }) {
-  const {
-    numero,
-    date,
-    cause,
-    piecejointe,
-    chauffeur,
-    véhicule,
-    lieu,
-    etat,
-  } = useSelector((state) => state.pannes).filter(
+  const panne = useSelector((state) => state.pannes).filter(
     ({ id }) => id === rowID
   )[0];
+  const dispatch = useDispatch();
+  const [state, setState] = useState({
+    numero: panne.numero,
+    date: panne.date,
+    cause: panne.cause,
+    piecejointe: panne.piecejointe,
+    chauffeur: panne.chauffeur,
+    véhicule: panne.véhicule,
+    lieu: panne.lieu,
+    etat: panne.etat,
+  });
 
+  const changeCreds = (event) => {
+    setState({ ...state, [event.target.name]: event.target.value });
+  };
+  const handleChange = () => {
+    dispatch(modifyPanne (state));
+    handleClose();
+  };
   return (
     <Modal show={show} onHide={handleClose} size="lg">
       <Modal.Header closeButton>
-        <Modal.Title> Mission M{rowID[0]} </Modal.Title>
+        <Modal.Title> panne M{rowID[0]} </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Row>
@@ -33,46 +42,62 @@ function ViewMore({ show, handleClose, rowID }) {
           <Col>
             <Row>
               <h5 className="text-info col-6">date:</h5>
-              <p className="col-6 text-left">{date}</p>
+              <p className="col-6 text-left">{panne.date}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">cause:</h5>
-              <p className="col-6 text-left">{cause}</p>
+              <p className="col-6 text-left">{panne.cause}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">piecejointe:</h5>
-              <p className="col-6 text-left">{piecejointe}</p>
+              <p className="col-6 text-left">{panne.piecejointe}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">chauffeur:</h5>
-              <p className="col-6 text-left">{chauffeur}</p>
+              <p className="col-6 text-left">{panne.chauffeur}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">véhicule:</h5>
-              <p className="col-6 text-left">{véhicule}</p>
+              <p className="col-6 text-left">{panne.véhicule}</p>
             </Row>
 
             <Row>
               <h5 className="text-info col-6">lieu:</h5>
-              <p className="col-6">{lieu}</p>
+              <p className="col-6">{panne.lieu}</p>
             </Row>
           </Col>
 
           <Col>
             <Row>
-              <FormGroup>
+            <FormGroup>
                 <Label>Etat</Label>
-                <Input type="select">
-                  <option selected={etat === "attente"}>En attente</option>
-                  <option selected={etat === "en_cours"}>En cours</option>
-                  <option selected={etat === "annulée"}>Annulée</option>
-                  <option selected={etat === "effectuée"}>Effectuée</option>
+                <Input type="select" name="etat" onChange={changeCreds}>
+                  <option selected={panne.etat === "attente"} value="attente">
+                    En attente
+                  </option>
+                  <option
+                    selected={panne.etat === "en_cours"}
+                    value="en_cours"
+                  >
+                    En cours
+                  </option>
+                  <option selected={panne.etat === "annulée"} value="annulée">
+                    Annulée
+                  </option>
+                  <option
+                    selected={panne.etat === "effectuée"}
+                    value="effectuée"
+                  >
+                    Effectuée
+                  </option>
                 </Input>
-                <Button className="mt-2">Met jour l'état</Button>
+                <Button className="mt-2" onClick={handleChange}>
+                  Met à jour l'état
+                </Button>
               </FormGroup>
             </Row>
           </Col>

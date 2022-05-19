@@ -19,7 +19,7 @@ function Missions() {
             infos="5"
             iconName="fa-solid fa-circle-check"
             bgColor="#38b000"
-            //linkCard="/admin/vehicules"
+            linkCard="/admin/missions"
           />
         </Col>
 
@@ -29,7 +29,7 @@ function Missions() {
             infos="10"
             iconName="fa-solid fa-spinner "
             bgColor="#f77f00"
-            //linkCard="/admin/Chauffeurs"
+            linkCard="/admin/missions"
           />
         </Col>
 
@@ -39,7 +39,7 @@ function Missions() {
             infos="2"
             iconName="fa-solid fa-clock"
             bgColor="#00b4d8"
-            //linkCard="/admin/Mecaniciens"
+            linkCard="/admin/missions"
           />
         </Col>
 
@@ -49,7 +49,7 @@ function Missions() {
             infos="5"
             iconName="fa-solid fa-ban"
             bgColor="#dc2f02"
-            //linkCard="/admin/Missions"
+            linkCard="/admin/missions"
           />
         </Col>
       </Row>

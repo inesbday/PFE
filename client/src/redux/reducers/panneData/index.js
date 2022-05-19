@@ -7,6 +7,7 @@ const data = [
     piecejointe: "Photo 1",
     chauffeur: "ahmed",
     véhicule: "Mercedes",
+    lieu:"sousse",
     etat: "attente",
   },
 
@@ -18,6 +19,7 @@ const data = [
     piecejointe: "Photo 2",
     chauffeur: "ali",
     véhicule: "peugeot",
+    lieu:"sousse",
     etat: "annulée",
   },
 

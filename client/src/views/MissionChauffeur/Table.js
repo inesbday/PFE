@@ -129,8 +129,8 @@ function Table() {
           </button>
 
           <a href="./sample.pdf" download>
-            <button className="btn btn-primary" title="Télécharger">
-              <i className="fa-solid fa-circle-down"></i>
+            <button className="btn btn-primary" title="Imprimer">
+              <i className="fa fa-print"></i>
             </button>
           </a>
           {/* <button className="btn btn-danger" title="Supprimer">

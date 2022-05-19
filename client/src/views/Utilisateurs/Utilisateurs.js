@@ -12,7 +12,7 @@ function Users() {
   return (
     <Container>
       <h4>Liste des utilisateurs </h4>
-      <Button className="btn btn-info rounded" onClick={toggleOpenAjouterUser}>
+      <Button className ="btn btn-info rounded mt-3" onClick={toggleOpenAjouterUser}>
         Ajouter un nouvel utilisateur
       </Button>
 
